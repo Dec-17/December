@@ -10,6 +10,8 @@ public class Mob : MonoBehaviour
     public float NomalItemProbability = 0.85f; //일반 아이템 드랍 확률
     public float EpicItemProbability = 0.15f; //희귀 아이템 드랍 확률
 
+    public float mobSpeed = 3f; //몬스터 이동 속도
+    private float detectionRange = 20f; //몬스터가 플레이어를 감지할 범위
     void Start()
     {
 
@@ -17,7 +19,17 @@ public class Mob : MonoBehaviour
 
     void Update()
     {
+        PlayerController player = FindObjectOfType<PlayerController>(); //씬에서 플레이어 찾기
 
+        if (player != null)
+        {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distance <= detectionRange) //플레이어가 감지 범위 내에 있을 때 이동
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, mobSpeed * Time.deltaTime);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) //충돌처리
