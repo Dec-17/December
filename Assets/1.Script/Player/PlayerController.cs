@@ -5,7 +5,10 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed = 5f; //플레이어 이동 속도
+    public float playerSpeed = 5f; //플레이어 이동 속도
+    public float playerHP = 10; //플레이어 체력
+    public float playerST = 10; //플레이어 스테미너
+
     Animator animator;
     SpriteRenderer spriteRenderer;
     public float moveHorizontal;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
         Vector3 moveDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
-        transform.Translate(moveDirection * Speed * Time.deltaTime);
+        transform.Translate(moveDirection * playerSpeed * Time.deltaTime);
 
         
        
