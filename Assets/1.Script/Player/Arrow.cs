@@ -16,15 +16,15 @@ public class Arrow : MonoBehaviour
         transform.Translate(Vector3.down * ArrowSpeed * Time.deltaTime); //ArrowSpeed 속도로 이동
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other) //화살 충돌
     {
-        if (other.CompareTag("Player") || other.CompareTag("Item"))
+        if (other.CompareTag("Player") || other.CompareTag("Item") || other.CompareTag("TileMap")) //플레이어, 아이템, 타일맵은 통과
         {
             {
                 return;
             }
         }
-        else
+        else //그외의 오브젝트와 충돌 시 화살 파괴
         {
             Destroy(gameObject);
         }

@@ -8,43 +8,81 @@ public class GameManager : MonoBehaviour
     public int goldInt = 0;
     public Text goldText;
     public GameObject settingPanel;
+    public GameObject inventoryPanel;
     private bool isPaused = false; //게임이 일시정지 되었는지
     private bool isSettingPanelOpen = false; //설정 패널이 열려 있는지
+    private bool isInventoryPanelOpen = false; //인벤토리가 열려 있는지
 
     void Start()
     {
-
+        //Cursor.visible = false; //게임 시작 시 마우스를 숨김
+        //마우스를 숨기고 해당 위치에 조준경 표시
     }
 
     void Update()
     {
-        UpdateGoldText();
+        UpdateGoldText(); //골드 소지량 업데이트
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) //설정패널 또는 인벤토리 여닫기
         {
             if (isSettingPanelOpen)
             {
                 CloseSettingPanel();
             }
+            else if (isInventoryPanelOpen)
+            {
+                CloseInventoryPanel();
+            }
             else
             {
-                Setting();
+                OpenSettingPanel();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I)) //인벤토리 여닫기
+        {
+            if (isInventoryPanelOpen)
+            {
+                CloseInventoryPanel();
+            }
+            else
+            {
+                OpenInventory();
             }
         }
     }
 
-    void UpdateGoldText() //골드 텍스트 업데이트
+    public void OpenInventory() //인벤토리 열기
     {
-        goldText.text = "Gold: " + goldInt.ToString();
+        PauseGame();
+        inventoryPanel.SetActive(true);
+        isInventoryPanelOpen = true;
     }
 
-    public void Setting() //설정창 열기
+    void CloseInventoryPanel() //인벤토리 닫기
+    {
+        ResumeGame();
+        inventoryPanel.SetActive(false);
+        isInventoryPanelOpen = false;
+    }
+
+    public void OpenSettingPanel() //설정창 열기
     {
         if (!isPaused)
         {
             PauseGame();
             settingPanel.SetActive(true);
             isSettingPanelOpen = true;
+        }
+    }
+
+    void CloseSettingPanel() //설정창 닫기
+    {
+        if (isPaused)
+        {
+            ResumeGame();
+            settingPanel.SetActive(false);
+            isSettingPanelOpen = false;
         }
     }
 
@@ -72,24 +110,20 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    void PauseGame()
+    void PauseGame() //게임 일시정지
     {
         isPaused = true;
-        Time.timeScale = 0; //게임 일시정지
+        Time.timeScale = 0;
     }
 
-    void ResumeGame()
+    void ResumeGame() //게임 재개
     {
         isPaused = false;
-        Time.timeScale = 1; //게임 재개
+        Time.timeScale = 1;
     }
-    void CloseSettingPanel()
+
+    void UpdateGoldText() //골드 소지량 텍스트 업데이트
     {
-        if (isPaused)
-        {
-            ResumeGame();
-            settingPanel.SetActive(false);
-            isSettingPanelOpen = false;
-        }
+        goldText.text = "Gold: " + goldInt.ToString();
     }
 }

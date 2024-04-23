@@ -21,7 +21,7 @@ public class Bow : MonoBehaviour
     public bool IsPlayerDown = false;
     public bool IsPlayerUp = false;
 
-    public bool isAttack = false;
+    public bool isAttack = false; //플레이어가 공격중인지 확인하는 변수
 
     void Start()
     {
@@ -103,7 +103,7 @@ public class Bow : MonoBehaviour
             {
                 if (!bowVisible)
                 {
-                    isAttack = true; //공격중 상태로 변경
+                    isAttack = true; //공격 상태로 변경
 
                     SetBowAlpha(1f); //알파 값을 1로 설정하여 보이게 함
                     bowAnimator.SetBool("Attack", true); //화살 발사 애니메이션 재생
@@ -121,7 +121,7 @@ public class Bow : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0)) //화살 발사 종료
         {
-            isAttack = false; //공격중이 아님 상태로 변경
+            isAttack = false; //공격중이 아닌 상태로 변경
 
             spriteRenderer.flipX = false; //활을 쏘고 있지 않으므로 플립 비활성화
 
@@ -130,9 +130,9 @@ public class Bow : MonoBehaviour
             CancelInvoke(nameof(CreateArrow)); //화살 생성 간격 함수 호출 중지
         }
 
-        if(isAttack == false & playerController.playerSP < playerController.maxPlayerSP)
+        if(isAttack == false & playerController.playerSP < playerController.maxPlayerSP) //공격중이 아니며 플레이어의 스테미너가 최대치보다 낮으면
         {
-            StartCoroutine(playerController.StaminaAutoHeal());
+            StartCoroutine(playerController.StaminaAutoHeal()); //플레이어 스테미너 자동 회복 메서드 실행
         }
 
         PlayerAnimator.SetBool("PlayerX", IsPlayerX); //좌우이동 애니메이션 실행
@@ -140,7 +140,7 @@ public class Bow : MonoBehaviour
         PlayerAnimator.SetBool("PlayerUp", IsPlayerUp); //상단이동 애니메이션 실행
     }
 
-    void CreateArrow()
+    void CreateArrow() //화살 생성
     {
         //화살 생성 및 회전 설정
         GameObject arrow = Instantiate(ArrowObj, ArrowSpawnPoint.position, Quaternion.identity);
@@ -161,7 +161,7 @@ public class Bow : MonoBehaviour
         }
     }
 
-    IEnumerator HideBowAfterDelay(float delay)
+    IEnumerator HideBowAfterDelay(float delay) //공격 종료 시
     {
         yield return new WaitForSeconds(delay); //delay초 동안 대기
 
