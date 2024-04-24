@@ -29,11 +29,6 @@ public class TextManager : MonoBehaviour
 
     //private EventSystem eventSystem; //이벤트 시스템
 
-    public GameObject talkTrue; //대화 가능 범위에 들어왔는지 표시
-    public bool isInRange = false; //대화 가능 범위에 들어왔는지 확인하는 값
-    public float talkLength = 3; //대화 가능 범위
-
-
     public void Start()
     {
         //게임 실행 시 대화창 UI 비활성화
@@ -53,47 +48,7 @@ public class TextManager : MonoBehaviour
 
     private void Update()
     {
-        if(isInRange == true)
-        {
             textLoad();
-        }
-        
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");  //Player 태그를 가진 오브젝트 찾기
-
-        foreach (GameObject player in players)
-        {
-            float distance = Vector3.Distance(transform.position, player.transform.position); //플레이어와 현재 스크립트를 가진 오브젝트 사이의 거리측정
-
-            if (distance <= talkLength) //거리가 talkLength 이내에 있다면
-            {
-                isInRange = true; //대화 가능 범위에 들어옴
-                break;
-            }
-            else
-            {
-                isInRange = false; //대화 가능 거리 밖임
-            }
-        }
-
-        if (isInRange) //만약 범위 안에 있다면
-        {
-            Debug.Log("대화가능");
-            //대화 가능 표시 활성화
-            //talkTrue 오브젝트의 알파값을 1로 설정
-            Color color = talkTrue.GetComponent<Renderer>().material.color;
-            color.a = 1f;
-            talkTrue.GetComponent<Renderer>().material.color = color;
-        }
-        else
-        {
-            Debug.Log("대화불가능");
-            //대화 가능 표시 비활성화
-            //범위 밖에 있다면 talkTrue 오브젝트의 알파값을 0으로 설정
-            Color color = talkTrue.GetComponent<Renderer>().material.color;
-            color.a = 0f;
-            talkTrue.GetComponent<Renderer>().material.color = color;
-        }
     }
 
     public void textLoad()
@@ -116,12 +71,6 @@ public class TextManager : MonoBehaviour
 
                     //이벤트 시스템 잠금
                     //LockEventSystem(true);
-
-                    //대화 가능 표시 비활성화
-                    //범위 밖에 있다면 talkTrue 오브젝트의 알파값을 0으로 설정
-                    Color color = talkTrue.GetComponent<Renderer>().material.color;
-                    color.a = 0f;
-                    talkTrue.GetComponent<Renderer>().material.color = color;
                 }
                 else
                 {
@@ -133,12 +82,6 @@ public class TextManager : MonoBehaviour
 
                     //이벤트 시스템 잠금해제
                     //LockEventSystem(false);
-
-                    //대화 가능 표시 활성화
-                    //talkTrue 오브젝트의 알파값을 1로 설정
-                    Color color = talkTrue.GetComponent<Renderer>().material.color;
-                    color.a = 1f;
-                    talkTrue.GetComponent<Renderer>().material.color = color;
                 }
             }
             else //타이핑 모션중 스페이스 입력 시

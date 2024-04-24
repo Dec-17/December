@@ -28,6 +28,8 @@ public class Bow : MonoBehaviour
         bowAnimator = BowObj.GetComponent<Animator>();
         playerController = PlayerObj.GetComponent<PlayerController>();
         spriteRenderer = PlayerObj.GetComponent<SpriteRenderer>();
+        SpriteRenderer bowSpriteRenderer = BowObj.GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
@@ -97,7 +99,15 @@ public class Bow : MonoBehaviour
             IsPlayerUp = false;
         }
 
-        if (Input.GetMouseButton(0)) //화살 발사
+        bool isDiagonalMovement = Mathf.Abs(playerController.moveHorizontal) > 0 && Mathf.Abs(playerController.moveVertical) > 0; //대각선 이동 여부 확인
+
+        if (isDiagonalMovement) //대각선 이동 중이라면
+        {
+            IsPlayerDown = false; //PlayerUP, PlayerDown 값을 강제로 false로 설정
+            IsPlayerUp = false;
+        }
+
+            if (Input.GetMouseButton(0)) //화살 발사
         {
             if (playerController.playerSP > 0) //playerSP가 0보다 클 때만 화살 발사
             {

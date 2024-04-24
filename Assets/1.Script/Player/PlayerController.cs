@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         //플레이어 이동 속도 설정
         float speed = playerSpeed;
 
-        //플레이어 이동
+        //플레이어 이동   
         Vector3 moveDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
         transform.Translate(moveDirection * speed * Time.deltaTime);
 
