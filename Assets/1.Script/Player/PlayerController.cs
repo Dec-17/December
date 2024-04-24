@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public float playerSpeed = 5f; //플레이어 이동 속도
     public float playerRunSpeed = 10; //플레이어 달리기 속도
-    public float dashDistance = 3f; //플레이어 대쉬 거리
 
     public float maxPlayerHP = 10; //플레이어 최대 체력
     public float playerHP = 10; //플레이어 체력
@@ -21,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     SpriteRenderer spriteRenderer;
+    Rigidbody2D playerRigidbody; 
     public float moveHorizontal;
     public float moveVertical;
 
@@ -28,34 +28,28 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        //플레이어 이동 값
-        moveHorizontal = Input.GetAxis("Horizontal");
-       
-        moveVertical = Input.GetAxis("Vertical");
-
-        //플레이어 이동 속도 설정
-        float speed = playerSpeed;
-
         //플레이어 달리기
-        if (isAttack == false) //공격중이 아닐 경우
+        if (isAttack == false && Input.GetKeyDown(KeyCode.LeftShift)) //공격중이 아니고 쉬프트를 누르고 있다면
         {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))//쉬프트를 누르고 있다면
-            {
-
-                speed = playerRunSpeed; //플레이어 속도를 RunSpeed로 변경
-            }
+            Debug.Log("달리는중");
+            playerSpeed = playerRunSpeed; //플레이어 속도를 RunSpeed로 변경
         }
 
-        //플레이어 대쉬
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.LeftShift) || isAttack == true) //공격을 시작했거나 쉬프트 입력을 취소했다면
         {
-            //대쉬 애니메이션 넣어야함**********
-            Vector3 dashDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized; //대쉬 방향 설정
-            transform.position += dashDirection * dashDistance; //대쉬 거리만큼 순간이동
+            Debug.Log("달리기 종료");
+            playerSpeed = 5f; //플레이어 속도를 초기화
+        }
+
+        if(Input.GetMouseButtonUp(0) && Input.GetKey(KeyCode.LeftShift)) //공격을 종료했을때 쉬프트를 누르고 있다면
+        {
+            Debug.Log("달리는중");
+            playerSpeed = playerRunSpeed; //플레이어 속도를 RunSpeed로 변경
         }
 
         //플레이어 공격 상태 체킹
@@ -67,6 +61,17 @@ public class PlayerController : MonoBehaviour
         {
             isAttack = false; //공격중이 아닌 상태로 변경
         }
+    }
+
+    void FixedUpdate()
+    {
+        //플레이어 이동 값
+        moveHorizontal = Input.GetAxis("Horizontal");
+       
+        moveVertical = Input.GetAxis("Vertical");
+
+        //플레이어 이동 속도 설정
+        float speed = playerSpeed;
 
         //플레이어 이동
         Vector3 moveDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
@@ -104,20 +109,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("몬스터와 충돌");
             playerHP--;
             UpdatePlayerState(); //플레이어 상태 업데이트
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "TileMap")
-        {
-            if (collision.contacts[0].normal.y>0.7f)
-            {
-                //플레이어의 입력값을 제어
-                moveVertical = 0f;
-
-            }
-          
         }
     }
 

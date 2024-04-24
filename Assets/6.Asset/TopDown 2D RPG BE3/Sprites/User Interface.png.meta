@@ -1,7 +1,34 @@
 fileFormatVersion: 2
-guid: 951527ceebf8a3f4483cd6aa67898ba9
+guid: 1c9bc0d104c01934da10d4333b9dc48b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4827201375843143100
+    second: Panel White
+  - first:
+      213: 4229574389047005653
+    second: Panel Black
+  - first:
+      213: -6578267993364069794
+    second: Button Accept
+  - first:
+      213: -4296635770777405670
+    second: Talk Cursor
+  - first:
+      213: 8117750489508839553
+    second: Button Up
+  - first:
+      213: -1582703761720647702
+    second: Button Down
+  - first:
+      213: 6342293345636278915
+    second: Button Left
+  - first:
+      213: -8667803144176668281
+    second: Button Right
+  - first:
+      213: 3420474935965269878
+    second: Button Back
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +66,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,11 +92,11 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -82,10 +109,36 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,169 +150,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_0"
+      name: Panel White
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442b79d9ce5520db0800000000000000
+      internalID: -4827201375843143100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel Black
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 25
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d19c326f7772ba30800000000000000
+      internalID: 4229574389047005653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button Accept
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 25
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52863afc1c45b4a0800000000000000
+      internalID: -6578267993364069794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Talk Cursor
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 25
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a177391f7884f54c0800000000000000
+      internalID: -4296635770777405670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button Up
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a5641328017c2549a8f86b601d83bdc
-      internalID: -1689188942
+      spriteID: 1808d6e7f0b08a070800000000000000
+      internalID: 8117750489508839553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_1"
+      name: Button Down
       rect:
         serializedVersion: 2
-        x: 32
+        x: 25
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2126b4194fd73054985efc2d1aab3891
-      internalID: -1323977502
+      spriteID: aef57f1705b190ae0800000000000000
+      internalID: -1582703761720647702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_2"
+      name: Button Left
       rect:
         serializedVersion: 2
-        x: 64
+        x: 50
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84810bd23a3d7b142917c7dd46da3f3e
-      internalID: -547812835
+      spriteID: 38269f7e13a540850800000000000000
+      internalID: 6342293345636278915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_3"
+      name: Button Right
       rect:
         serializedVersion: 2
-        x: 96
+        x: 75
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcd11a10c7909f545a9ce2272d61c60e
-      internalID: -1292142196
+      spriteID: 781f550e6f6c5b780800000000000000
+      internalID: -8667803144176668281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_4"
+      name: Button Back
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902e45e79ec92424b8c5a1385a05c889
-      internalID: 1281004702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_5"
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5c8247d957abdc4fb2924ba2861263b
-      internalID: 1442194226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_6"
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e70d073ab12c74749a0d16d4f6fffd26
-      internalID: 1548901599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_7"
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05deeca108d42cb4fb9160f9b07c4c58
-      internalID: -1533755480
+      spriteID: 67f3651f4d7f77f20800000000000000
+      internalID: 3420474935965269878
       vertices: []
       indices: 
       edges: []
@@ -267,7 +341,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 87f44f085389b674e8a064f2e9320eee
     internalID: 0
     vertices: []
     indices: 
@@ -275,14 +349,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_0": -1689188942
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_1": -1323977502
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_2": -547812835
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_3": -1292142196
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_4": 1281004702
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_5": 1442194226
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_6": 1548901599
-      "\uB300\uC7A5\uC7A5\uC774 \uC2A4\uD504\uB77C\uC774\uD2B8_7": -1533755480
+      Button Accept: -6578267993364069794
+      Button Back: 3420474935965269878
+      Button Down: -1582703761720647702
+      Button Left: 6342293345636278915
+      Button Right: -8667803144176668281
+      Button Up: 8117750489508839553
+      Panel Black: 4229574389047005653
+      Panel White: -4827201375843143100
+      Talk Cursor: -4296635770777405670
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
