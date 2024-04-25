@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Text goldText;
     public GameObject settingPanel;
     public GameObject inventoryPanel;
+    public GameObject aimPoint;
     private bool isPaused = false; //게임이 일시정지 되었는지
     private bool isSettingPanelOpen = false; //설정 패널이 열려 있는지
     private bool isInventoryPanelOpen = false; //인벤토리가 열려 있는지
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Cursor.visible = false; //게임 시작 시 마우스를 숨김
-        //마우스를 숨기고 해당 위치에 조준경 표시
+        //UpdateAimPointPosition(); //aimPoint의 초기 위치 설정
     }
 
     void Update()
@@ -50,6 +51,10 @@ public class GameManager : MonoBehaviour
                 OpenInventory();
             }
         }
+
+        UpdateGoldText(); //골드 소지량 업데이트
+
+        //UpdateAimPointPosition(); //마우스 위치에 따라 aimPoint 이동
     }
 
     public void OpenInventory() //인벤토리 열기
@@ -125,5 +130,14 @@ public class GameManager : MonoBehaviour
     void UpdateGoldText() //골드 소지량 텍스트 업데이트
     {
         goldText.text = "Gold: " + goldInt.ToString();
+    }
+
+    void UpdateAimPointPosition() //에임포인트
+    {
+        Vector3 mousePosition = Input.mousePosition; //현재 마우스 위치 가져오기
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition); //마우스 위치를 월드 좌표로 변환
+        mousePosition.z = 0f; //aimPoint의 z축 값 설정
+
+        aimPoint.transform.position = mousePosition; //aimPoint를 마우스 위치로 이동
     }
 }

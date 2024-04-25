@@ -14,31 +14,26 @@ public class TextArray
 
 public class TextManager : MonoBehaviour
 {
-    public Text talkText; //대사 텍스트
-    public GameObject chatArrow; //대화 종료 화살표 이미지
-    public GameObject chatWindow; //대화창
-    public GameObject windowShadow; //대화 도중 게임화면 음영효과
+    public Text dialogueText; //다이얼로그 텍스트
+    public GameObject dialogueArrow; //대화 종료 화살표 이미지
+    public GameObject dialogueWindow; //대화창
 
     public int currentTextIndex = 0;
     public float typingSpeed = 0.05f; //타이핑모션 속도
-    private bool isTyping = false; //타이핑 모션 활성화 중인지 확인
+    private bool isTyping = false; //타이핑모션 활성화 여부 확인
     public int chapterNumber = 0; //현재 챕터
     public TextArray[] chapter; //챕터 배열
 
-    private bool[] isChapter; //챕터가 실행이 되었는지 확인
-
-    //private EventSystem eventSystem; //이벤트 시스템
+    private bool[] isChapter; //챕터 실행 여부
 
     public void Start()
     {
         //게임 실행 시 대화창 UI 비활성화
-        talkText.gameObject.SetActive(false);
-        chatArrow.SetActive(false);
-        chatWindow.SetActive(false);
-        windowShadow.SetActive(false);
+        dialogueText.gameObject.SetActive(false);
+        dialogueArrow.SetActive(false);
+        dialogueWindow.SetActive(false);
 
         isChapter = new bool[chapter.Length]; //isChapter 배열 초기화
-        //eventSystem = EventSystem.current;
 
         for (int i = 0; i > isChapter.Length; i++)
         {
@@ -64,32 +59,24 @@ public class TextManager : MonoBehaviour
                     currentTextIndex++;
 
                     //대화 시작 시 대화창 UI 활성화
-                    talkText.gameObject.SetActive(true);
-                    chatArrow.SetActive(true);
-                    chatWindow.SetActive(true);
-                    windowShadow.SetActive(true);
-
-                    //이벤트 시스템 잠금
-                    //LockEventSystem(true);
+                    dialogueText.gameObject.SetActive(true);
+                    dialogueArrow.SetActive(true);
+                    dialogueWindow.SetActive(true);
                 }
                 else
                 {
                     //대화 종료 시 대화창 UI 비활성화
-                    talkText.gameObject.SetActive(false);
-                    chatArrow.SetActive(false);
-                    chatWindow.SetActive(false);
-                    windowShadow.SetActive(false);
-
-                    //이벤트 시스템 잠금해제
-                    //LockEventSystem(false);
+                    dialogueText.gameObject.SetActive(false);
+                    dialogueArrow.SetActive(false);
+                    dialogueWindow.SetActive(false);
                 }
             }
             else //타이핑 모션중 스페이스 입력 시
             {
                 //타이핑 효과 즉시 종료
                 StopAllCoroutines();
-                talkText.text = chapter[chapterNumber].talk[currentTextIndex - 1];
-                chatArrow.SetActive(true);
+                dialogueText.text = chapter[chapterNumber].talk[currentTextIndex - 1];
+                dialogueArrow.SetActive(true);
                 isTyping = false;
             }
         }
@@ -103,13 +90,9 @@ public class TextManager : MonoBehaviour
                     currentTextIndex++;
 
                     //대화 시작 시 대화창 UI 활성화
-                    talkText.gameObject.SetActive(true);
-                    chatArrow.SetActive(true);
-                    chatWindow.SetActive(true);
-                    windowShadow.SetActive(true);
-
-                    //이벤트 시스템 잠금
-                    //LockEventSystem(true);
+                    dialogueText.gameObject.SetActive(true);
+                    dialogueArrow.SetActive(true);
+                    dialogueWindow.SetActive(true);
                 }
             }
         }
@@ -121,31 +104,23 @@ public class TextManager : MonoBehaviour
             yield return null;
         }
         isTyping = true;
-        talkText.text = "";
+        dialogueText.text = "";
         foreach (char letter in textToType)
         {
-            talkText.text += letter;
+            dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        chatArrow.SetActive(true);
+        dialogueArrow.SetActive(true);
         isTyping = false;
     }
 
     public void Chapter1()
     {
-        if (!isChapter[1]) //챕터가 실행되었는지 확인
+        if (!isChapter[1]) //챕터 실행 여부
         {
             chapterNumber = 1;
             currentTextIndex = 0;
-            isChapter[1] = true; //챕터가 실행되었음을 확인
+            isChapter[1] = true; //챕터 실행 확인
         }
     }
-
-    //private void LockEventSystem(bool lockState) //대화도중 이벤트 시스템 방지
-    //{
-    //    if (eventSystem != null)
-    //    {
-    //        eventSystem.enabled = !lockState;
-    //    }
-    //}
 }

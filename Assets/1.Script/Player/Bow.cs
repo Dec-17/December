@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -28,13 +29,10 @@ public class Bow : MonoBehaviour
         bowAnimator = BowObj.GetComponent<Animator>();
         playerController = PlayerObj.GetComponent<PlayerController>();
         spriteRenderer = PlayerObj.GetComponent<SpriteRenderer>();
-        SpriteRenderer bowSpriteRenderer = BowObj.GetComponent<SpriteRenderer>();
-
     }
 
     void Update()
     {
-
         //마우스 위치에 따른 활 회전
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
@@ -93,10 +91,12 @@ public class Bow : MonoBehaviour
         if (playerController.moveVertical > 0f) //플레이어 상단 이동
         {
             IsPlayerUp = true;
+            spriteRenderer.sortingOrder = 15;
         }
         else
         {
             IsPlayerUp = false;
+            spriteRenderer.sortingOrder = 10;
         }
 
         bool isDiagonalMovement = Mathf.Abs(playerController.moveHorizontal) > 0 && Mathf.Abs(playerController.moveVertical) > 0; //대각선 이동 여부 확인
