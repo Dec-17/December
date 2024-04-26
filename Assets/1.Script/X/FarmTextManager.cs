@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-//[System.Serializable]
-//public class TextArray
-//{
-//    public string[] talk; //대사 배열
-//}
+[System.Serializable]
+public class TextArray
+{
+    public string[] talk; //대사 배열
+}
 
 public class FarmTextManager : MonoBehaviour
 {

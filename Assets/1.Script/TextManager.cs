@@ -5,122 +5,108 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
-
-[System.Serializable]
-public class TextArray
-{
-    public string[] talk; //대사 배열
-}
+using UnityEditor.Rendering;
 
 public class TextManager : MonoBehaviour
 {
+    public float talkLength = 3f; //대화 가능 범위
+    public GameObject talkTrue; //대화 가능한 범위에 들어왔는지 표시
+    public bool isInRange = false; //대화 가능 범위인지 확인
+
     public Text dialogueText; //다이얼로그 텍스트
-    public GameObject dialogueArrow; //대화 종료 화살표 이미지
-    public GameObject dialogueWindow; //대화창
+    public GameObject dialogueWindow; //다이얼로그 대화칸
 
-    public int currentTextIndex = 0;
-    public float typingSpeed = 0.05f; //타이핑모션 속도
-    private bool isTyping = false; //타이핑모션 활성화 여부 확인
-    public int chapterNumber = 0; //현재 챕터
-    public TextArray[] chapter; //챕터 배열
+    public float typingSpeed = 0.1f; //타이핑모션 속도
+    private bool isTyping = false; // 타이핑 모션 실행 여부 확인
 
-    private bool[] isChapter; //챕터 실행 여부
-
-    public void Start()
+    public string[] talk; //다이얼로그 텍스트를 입력 할 배열
+    private int currentTalkIndex = 0; //현재 출력 중인 talk의 인덱스
+    void Start()
     {
         //게임 실행 시 대화창 UI 비활성화
         dialogueText.gameObject.SetActive(false);
-        dialogueArrow.SetActive(false);
         dialogueWindow.SetActive(false);
-
-        isChapter = new bool[chapter.Length]; //isChapter 배열 초기화
-
-        for (int i = 0; i > isChapter.Length; i++)
-        {
-            isChapter[i] = false;
-        }
     }
 
-    private void Update()
+    void Update()
     {
-            textLoad();
-    }
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");  //Player 태그를 가진 오브젝트 찾기
 
-    public void textLoad()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        foreach (GameObject player in players)
         {
-            if (!isTyping) //타이핑 모션중이 아닐 시
+            float distance = Vector3.Distance(transform.position, player.transform.position); //플레이어와 현재 스크립트를 가진 오브젝트 사이의 거리측정
+
+            if (distance <= talkLength) //거리가 talkLength 이내에 있다면
             {
-                if (currentTextIndex < chapter[chapterNumber].talk.Length)
-                {
-                    //대화 시작 시 타이핑모션 효과
-                    StartCoroutine(TypeText(chapter[chapterNumber].talk[currentTextIndex]));
-                    currentTextIndex++;
+                isInRange = true; //대화 가능 범위에 들어옴
+                break;
+            }
+            else
+            {
+                isInRange = false; //대화 가능 거리 밖임
+            }
+        }
 
-                    //대화 시작 시 대화창 UI 활성화
-                    dialogueText.gameObject.SetActive(true);
-                    dialogueArrow.SetActive(true);
-                    dialogueWindow.SetActive(true);
+        if (isInRange) //만약 범위 안에 있다면
+        {
+            Debug.Log("대화가능");
+            //talkTrue 오브젝트의 알파값을 1로 설정
+            Color color = talkTrue.GetComponent<Renderer>().material.color;
+            color.a = 1f;
+            talkTrue.GetComponent<Renderer>().material.color = color;
+        }
+        else
+        {
+            Debug.Log("대화불가능");
+            //범위 밖에 있다면 talkTrue 오브젝트의 알파값을 0으로 설정
+            Color color = talkTrue.GetComponent<Renderer>().material.color;
+            color.a = 0f;
+            talkTrue.GetComponent<Renderer>().material.color = color;
+
+            //대화 도중 범위 밖으로 나가면 대화 초기화
+            dialogueText.gameObject.SetActive(false);
+            dialogueWindow.SetActive(false);
+            currentTalkIndex = 0;
+        }
+
+        dialogueStart();
+    }
+
+    public void dialogueStart()
+    {
+        if (isInRange == true)
+        {
+            if (!isTyping && Input.GetKeyDown(KeyCode.Space))
+            {
+                if (currentTalkIndex < talk.Length)
+                {
+                    dialogueText.gameObject.SetActive(true); //다이얼로그 텍스트 활성화
+                    dialogueWindow.SetActive(true); //대화창 활성화
+                    StartCoroutine(TypeText(talk[currentTalkIndex])); //타이핑 모션 시작
                 }
                 else
                 {
-                    //대화 종료 시 대화창 UI 비활성화
+                    // 대화가 모두 출력된 경우 대화창 비활성화, currentTalkIndex 초기화
                     dialogueText.gameObject.SetActive(false);
-                    dialogueArrow.SetActive(false);
                     dialogueWindow.SetActive(false);
-                }
-            }
-            else //타이핑 모션중 스페이스 입력 시
-            {
-                //타이핑 효과 즉시 종료
-                StopAllCoroutines();
-                dialogueText.text = chapter[chapterNumber].talk[currentTextIndex - 1];
-                dialogueArrow.SetActive(true);
-                isTyping = false;
-            }
-        }
-        else //talk의 배열이 0일 경우 바로 실행
-        {
-            if (!isTyping && currentTextIndex == 0)
-            {
-                if (chapter[chapterNumber].talk.Length > 0)
-                {
-                    StartCoroutine(TypeText(chapter[chapterNumber].talk[currentTextIndex]));
-                    currentTextIndex++;
-
-                    //대화 시작 시 대화창 UI 활성화
-                    dialogueText.gameObject.SetActive(true);
-                    dialogueArrow.SetActive(true);
-                    dialogueWindow.SetActive(true);
+                    currentTalkIndex = 0;
                 }
             }
         }
     }
-    IEnumerator TypeText(string textToType) //타이핑모션
-    {
-        if (textToType == null)
-        {
-            yield return null;
-        }
-        isTyping = true;
-        dialogueText.text = "";
-        foreach (char letter in textToType)
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-        }
-        dialogueArrow.SetActive(true);
-        isTyping = false;
-    }
 
-    public void Chapter1()
+    IEnumerator TypeText(string textToType) //타이핑 모션
     {
-        if (!isChapter[1]) //챕터 실행 여부
+        isTyping = true; //타이핑 중으로 설정
+        dialogueText.text = ""; //대화 텍스트 초기화
+
+        foreach (char letter in textToType) //입력된 텍스트를 한 글자씩 순회
         {
-            chapterNumber = 1;
-            currentTextIndex = 0;
-            isChapter[1] = true; //챕터 실행 확인
+            dialogueText.text += letter; //각 글자를 다이얼로그 텍스트에 하나씩 입력
+            yield return new WaitForSeconds(typingSpeed); //typingSpeed만큼 대기
         }
+
+        isTyping = false; //타이핑 종료
+        currentTalkIndex++; //다음 대화 내용으로 인덱스 증가
     }
 }
