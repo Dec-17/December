@@ -9,18 +9,19 @@ using UnityEditor.Rendering;
 
 public class TextManager : MonoBehaviour
 {
-    public float talkLength = 3f; //대화 가능 범위
+    private float talkLength = 3f; //대화 가능 범위
     public GameObject talkTrue; //대화 가능한 범위에 들어왔는지 표시
-    public bool isInRange = false; //대화 가능 범위인지 확인
+    private bool isInRange = false; //대화 가능 범위인지 확인
 
     public Text dialogueText; //다이얼로그 텍스트
     public GameObject dialogueWindow; //다이얼로그 대화칸
 
-    public float typingSpeed = 0.1f; //타이핑모션 속도
+    private float typingSpeed = 0.1f; //타이핑모션 속도
     private bool isTyping = false; // 타이핑 모션 실행 여부 확인
 
     public string[] talk; //다이얼로그 텍스트를 입력 할 배열
     private int currentTalkIndex = 0; //현재 출력 중인 talk의 인덱스
+    
     void Start()
     {
         //게임 실행 시 대화창 UI 비활성화
@@ -99,10 +100,18 @@ public class TextManager : MonoBehaviour
     {
         isTyping = true; //타이핑 중으로 설정
         dialogueText.text = ""; //대화 텍스트 초기화
+        int charCount = 0; //출력된 글자 수
 
         foreach (char letter in textToType) //입력된 텍스트를 한 글자씩 순회
         {
             dialogueText.text += letter; //각 글자를 다이얼로그 텍스트에 하나씩 입력
+            charCount++; //한글자가 입력 될때마다 출력된 글자 수 ++
+
+            if (charCount > 10 && letter == ' ') //10글자 이상 출력된다면
+            {
+                dialogueText.text += "\n"; //줄바꿈
+                charCount = 0; //출력된 글자 수 
+            }
             yield return new WaitForSeconds(typingSpeed); //typingSpeed만큼 대기
         }
 

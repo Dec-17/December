@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject aimPoint;
     private bool isPaused = false; //게임이 일시정지 되었는지
-    private bool isSettingPanelOpen = false; //설정 패널이 열려 있는지
+    private bool isSettingPanelOpen = false; //설정 패널 활성화 여부
     private bool isInventoryPanelOpen = false; //인벤토리가 열려 있는지
 
     void Start()

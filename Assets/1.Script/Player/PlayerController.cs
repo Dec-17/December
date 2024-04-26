@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttack = false; //플레이어가 공격중인지 확인하는 변수
 
+    //플레이어 스테이터스
+    public float playerATK = 10; //플레이어 공격력
+    public float playerDEF = 10; //플레이어 방어력
+
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D playerRigidbody; 
