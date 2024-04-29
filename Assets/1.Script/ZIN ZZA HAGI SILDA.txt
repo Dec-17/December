@@ -1,9 +1,15 @@
+ 
 
-버츄얼 오버라이드 응용해보기
+
+
+
+
+
+
+
 
 
 *맵 제작	https://pixivan.itch.io/top-down-forest-tileset
-@Tileset Guide (Just in Case)수정해서 콜라이더 타일로 만들기
 
 *스테이터스 및 장비 창
 장착한 아티팩트에 따라 스테이터스 변화

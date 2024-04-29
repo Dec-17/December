@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) //화살 충돌
     {
-        if (other.CompareTag("Player") || other.CompareTag("Item") || other.CompareTag("TileMap")) //플레이어, 아이템, 타일맵은 통과
+        if (other.CompareTag("Player") || other.CompareTag("Item") || other.CompareTag("TileMap") || other.CompareTag("MainCamera"))//플레이어, 아이템, 타일맵은 통과
         {
             {
                 return;

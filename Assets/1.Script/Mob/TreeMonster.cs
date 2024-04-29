@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class TreeMonster : Mob
 {
-    public override void Test12()
-    {
-        base.Test12();
-        Debug.Log("자식입니다.");
-    }
-
-
     void Start()
     {
-        Test12();
+        mobHP = 20f;
+        NomalItemProbability = 0.85f;
+        EpicItemProbability = 0.15f;
+        mobSpeed = 3f;
+        detectionRange = 20f;
+        damageColor = new Color(1f, 0.5f, 0.5f);
+        originalColor = new Color(1f, 1f, 1f);
     }
-
-    
 
     void Update()
     {
-        
-    }
-   
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       
+        Testvirtual();
+        FindPlayer();
     }
 }
