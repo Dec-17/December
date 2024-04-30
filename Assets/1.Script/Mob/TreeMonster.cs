@@ -6,11 +6,11 @@ public class TreeMonster : Mob
 {
     void Start()
     {
-        mobHP = 20f;
+        mobHP = 10f;
         NomalItemProbability = 0.85f;
         EpicItemProbability = 0.15f;
         mobSpeed = 3f;
-        detectionRange = 20f;
+        detectionRange = 50f;
         damageColor = new Color(1f, 0.5f, 0.5f);
         originalColor = new Color(1f, 1f, 1f);
     }

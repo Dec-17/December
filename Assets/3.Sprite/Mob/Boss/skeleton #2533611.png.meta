@@ -95,7 +95,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: skeleton #2533611_2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 265
+        width: 165
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7bff64c902572489ed53324f4ab1fb
+      internalID: -1628421502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton #2533611_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 174
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09506d814c1e81f4293996ba85693954
+      internalID: -662775482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +148,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      skeleton #2533611_0: -1167555814
+      skeleton #2533611_1: 856369173
+      skeleton #2533611_10: 1638748578
+      skeleton #2533611_11: -887559482
+      skeleton #2533611_12: 1060981180
+      skeleton #2533611_13: -1818002367
+      skeleton #2533611_14: 881286429
+      skeleton #2533611_15: -1209146383
+      skeleton #2533611_16: -779708995
+      skeleton #2533611_17: -445981786
+      skeleton #2533611_18: -1931938274
+      skeleton #2533611_19: -1477142587
+      skeleton #2533611_2: -1628421502
+      skeleton #2533611_20: 410354965
+      skeleton #2533611_21: -1218826281
+      skeleton #2533611_22: -1257942244
+      skeleton #2533611_23: -662775482
+      skeleton #2533611_24: -735823325
+      skeleton #2533611_25: -1977688692
+      skeleton #2533611_26: -1845025897
+      skeleton #2533611_27: 911267785
+      skeleton #2533611_28: -1355710303
+      skeleton #2533611_29: 615753653
+      skeleton #2533611_3: -438255083
+      skeleton #2533611_30: -743412480
+      skeleton #2533611_31: 477903350
+      skeleton #2533611_32: 1864532356
+      skeleton #2533611_33: -1172844145
+      skeleton #2533611_34: 601377971
+      skeleton #2533611_35: 2095641986
+      skeleton #2533611_4: 589332077
+      skeleton #2533611_5: -843756123
+      skeleton #2533611_6: 604783108
+      skeleton #2533611_7: -104808392
+      skeleton #2533611_8: -1385422396
+      skeleton #2533611_9: -2077455461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +23,16 @@ public class PlayerController : MonoBehaviour
     public float playerATK = 1; //플레이어 공격력
     public float playerDEF = 1; //플레이어 방어력
 
+    private bool invincible = false; //플레이어의 무적 상태 여부
+    public float invincibleDuration = 0.5f; //무적 상태 지속 시간
+
+    public float playerColorDuration = 0.3f; //피격 시 스프라이트 색상이 변경되는 시간
+    public Color playerDamageColor = new Color(1f, 0.6f, 0.6f, 1f); //피격 시 변경될 스프라이트가 색상
+    public Color playerOriginalColor = new Color(1f, 1f, 1f, 1f); //플레이어의 기본 스프라이트 색상
+
     Animator animator;
     SpriteRenderer spriteRenderer;
-    Rigidbody2D playerRigidbody; 
+    Rigidbody2D playerRigidbody;
     public float moveHorizontal;
     public float moveVertical;
 
@@ -50,7 +58,7 @@ public class PlayerController : MonoBehaviour
             playerSpeed = 5f; //플레이어 속도를 초기화
         }
 
-        if(Input.GetMouseButtonUp(0) && Input.GetKey(KeyCode.LeftShift)) //공격을 종료했을때 쉬프트를 누르고 있다면
+        if (Input.GetMouseButtonUp(0) && Input.GetKey(KeyCode.LeftShift)) //공격을 종료했을때 쉬프트를 누르고 있다면
         {
             Debug.Log("달리는중");
             playerSpeed = playerRunSpeed; //플레이어 속도를 RunSpeed로 변경
@@ -71,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         //플레이어 이동 값
         moveHorizontal = Input.GetAxis("Horizontal");
-       
+
         moveVertical = Input.GetAxis("Vertical");
 
         //플레이어 이동 속도 설정
@@ -106,14 +114,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //몬스터와 충돌 시
+    private void OnCollisionStay2D(Collision2D collision) //충돌 처리
     {
-        if (collision.CompareTag("Mob"))
+        if (!invincible && collision.gameObject.CompareTag("Mob")) //플레이어가 무적 상태가 아니고, 몬스터와 충돌했다면
         {
             Debug.Log("몬스터와 충돌");
             playerHP--;
+            StartCoroutine(DamageColorChange()); // 피격 시 스프라이트 색상 변경
+            StartCoroutine(InvincibleMode()); //무적 상태로 전환
             UpdatePlayerState(); //플레이어 상태 업데이트
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!invincible && collision.gameObject.CompareTag("Mob")) //플레이어가 무적 상태가 아니고, 몬스터와 충돌했다면
+        {
+            Debug.Log("몬스터와 충돌");
+            playerHP--;
+            StartCoroutine(DamageColorChange()); // 피격 시 스프라이트 색상 변경
+            StartCoroutine(InvincibleMode()); //무적 상태로 전환
+            UpdatePlayerState(); //플레이어 상태 업데이트
+        }
+    }
+
+    IEnumerator DamageColorChange() //피격 시 스프라이트 색상 변경하는 코루틴
+    {
+        spriteRenderer.color = playerDamageColor; //피격 시 색상 변경
+        yield return new WaitForSeconds(playerColorDuration); //일정 시간 동안 대기
+        spriteRenderer.color = playerOriginalColor; //일정 시간이 지난 후 원래 색상으로 복원
+    }
+
+
+    IEnumerator InvincibleMode() //무적 상태로 전환하는 코루틴
+    {
+        invincible = true; //플레이어를 무적 상태로 설정
+        Debug.Log("무적상태");
+        yield return new WaitForSeconds(invincibleDuration); //일정 시간 동안 대기
+        invincible = false; //일정 시간이 지난 후 무적 상태 해제
+        Debug.Log("무적상태 해제");
     }
 
     public IEnumerator StaminaAutoHeal() //스테미너 자동 회복

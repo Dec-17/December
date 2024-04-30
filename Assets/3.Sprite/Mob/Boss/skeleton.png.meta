@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: skeleton_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1030
+        width: 165
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4020fe3943411b42a6a5d1b744e9910
+      internalID: 1936815035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_12
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1073
+        width: 111
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3e7bb144e5dbc408fd7db575dc9bba
+      internalID: -1605612326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_16
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 858
+        width: 243
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04286d7255f8da14684fb30a00b3ad8b
+      internalID: -856059221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_27
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 345
+        width: 420
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddfe86ba95faaec44956bdf951ce9a55
+      internalID: -1673049487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,53 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      skeleton_0: 695826536
+      skeleton_1: 1625233472
+      skeleton_10: 2017632674
+      skeleton_11: 1972433129
+      skeleton_12: -1605612326
+      skeleton_13: -388641665
+      skeleton_14: 671253371
+      skeleton_15: -276713937
+      skeleton_16: -856059221
+      skeleton_17: -416073728
+      skeleton_18: 1524721869
+      skeleton_19: -908045887
+      skeleton_2: 1936815035
+      skeleton_20: -1671395549
+      skeleton_21: 1055823577
+      skeleton_22: 2066103249
+      skeleton_23: 11405036
+      skeleton_24: -1172504496
+      skeleton_25: -1351885357
+      skeleton_26: -1885376089
+      skeleton_27: -1673049487
+      skeleton_28: -2040888015
+      skeleton_29: -770832395
+      skeleton_3: -2069697814
+      skeleton_30: -533912568
+      skeleton_31: -1879614936
+      skeleton_32: -1876571776
+      skeleton_33: 903292862
+      skeleton_34: -1121408541
+      skeleton_35: -1861146012
+      skeleton_36: -2025333048
+      skeleton_37: 1818654706
+      skeleton_38: -803497210
+      skeleton_39: -458236120
+      skeleton_4: 1148858595
+      skeleton_40: 772858633
+      skeleton_41: 1871194457
+      skeleton_42: 1400487051
+      skeleton_43: 2029023311
+      skeleton_44: -1454394726
+      skeleton_45: 1960380895
+      skeleton_5: -202840277
+      skeleton_6: -2410264
+      skeleton_7: 1533907923
+      skeleton_8: -1219257783
+      skeleton_9: 76497751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
