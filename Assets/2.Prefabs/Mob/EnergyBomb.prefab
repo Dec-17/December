@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5326222518221959275}
   - component: {fileID: 846159721503337120}
   - component: {fileID: -6832187485526895437}
+  - component: {fileID: 7300910911054915436}
   m_Layer: 0
   m_Name: EnergyBomb
   m_TagString: Mob
@@ -170,3 +171,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!114 &7300910911054915436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577861010110908265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5b588a20385b34b9307fcfd3d1c874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reazerPrefab: {fileID: 8982616539854353220, guid: 49694b6b4361b0e4e97434f855b488bf, type: 3}
+  razerLinePrefab: {fileID: 1693079168815484477, guid: 30c31b99bfd9f274bbd6908ca6b82821, type: 3}
+  razerLineDuration: 1
+  razerDuration: 0.3

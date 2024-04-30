@@ -1,5 +1,6 @@
 
 *보스구현
+*에너지볼이 날아가서 벽에 닿으면 해당 축으로 레이저(레이저가 발사되기전 빨간색으로 경고표시)
 
 *맵 제작	https://pixivan.itch.io/top-down-forest-tileset
 
