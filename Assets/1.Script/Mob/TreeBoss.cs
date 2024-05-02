@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreeBoss : MonoBehaviour
 {
@@ -10,26 +11,27 @@ public class TreeBoss : MonoBehaviour
     public float bossLeftHandHP = 30f; //왼손 체력
     public float bossRightHandHP = 30f; //오른손 체력
 
-    private bool isPattern = false; //패턴 실행여부
+    //패턴 지속시간
+    public float patenTime = 3f;
 
+    //레이저 패턴
+    public GameObject razerPrefab; //레이저 프리팹
+    public GameObject razerWarningPrefab; //레이저 경고 프리팹
 
-    //에너지볼 패턴
-    public GameObject energyBombPrefab; //에너지볼 프리팹
-    public float energyBombSpeed = 20f; //속도
-    private float ShootMin = 0.5f; //발사 최소 간격
-    private float ShootMax = 1.5f; //발사 최대 간격
-    private float energyCoolTime = 20f; //패턴 쿨타임
-    private float energyDurationTime = 5f; //패턴 지속시간
-    private float nextShootTime; //다음 발사 시간
-
-    //몹 소환 패턴
-    public GameObject spawnMonsterPrefab; //소환 할 몬스터 프리팹
-    private float spawnTime = 30f; //패턴 쿨타임
+    //몹소환 패턴
+    public GameObject spawnMonsterPrefab; //소환몹 프리팹
     public int minSpawnCount = 1; //최소 소환 몬스터 수
     public int maxSpawnCount = 3; //최대 소환 몬스터 수
 
-    //바닥 내려찍기
+    //탄막 패턴
+    public GameObject energyBombPrefab; //탄막 프리팹
+    public float energyBombSpeed = 20f; //탄막 속도
 
+    //낙석 패턴
+    public GameObject rockShotPrefab; //낙석 프리팹
+
+    //스위치 변수
+    bool isPatternRunning = false;
 
     Collider bossColliders;
     Animation bossAnimation;
@@ -43,9 +45,8 @@ public class TreeBoss : MonoBehaviour
         leftHandSprite = GetComponent<Sprite>();
         rightHandSprite = GetComponent<Sprite>();
 
-        nextShootTime = Time.time + Random.Range(ShootMin, ShootMax); //첫 발사 시간 설정
-        StartCoroutine(SpawnMonsterPattern()); //패턴시작
-        StartCoroutine(EnergyePattern()); //패턴 시작
+        // 5초마다 패턴 호출을 시작
+        StartCoroutine(RandomPatternCaller());
     }
 
     void Update()
@@ -53,58 +54,121 @@ public class TreeBoss : MonoBehaviour
 
     }
 
-    IEnumerator EnergyePattern() //에너지볼 발사 패턴
+    // 5초마다 패턴을 랜덤으로 호출하는 코루틴
+    IEnumerator RandomPatternCaller()
     {
         while (true)
         {
-            yield return new WaitForSeconds(energyCoolTime); //energyCoolTime만큼 대기
+            //bossAnimation.SetTrigger(""); //보스 기본 애니메이션
+            yield return new WaitForSeconds(0f); //*초 대기
 
-            isPattern = true; //패턴 실행
-
-            float patternEndTime = Time.time + energyDurationTime; //패턴 시작
-            while (Time.time < patternEndTime)
+            if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
             {
-                if (isPattern && Time.time >= nextShootTime) //패턴 실행 여부 확인 후 발사 시간이 되면 에너지볼 발사
+                int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
+
+                switch (patternNumber)
                 {
-                    ShootEnergyBomb(); //에너지볼 발사
-                    nextShootTime = Time.time + Random.Range(ShootMin, ShootMax); //다음 발사 시간 설정
+                    case 1:
+                        StartCoroutine(RazerPattern());
+                        break;
+                    case 2:
+                        StartCoroutine(MobSpawnPattern());
+                        break;
+                    case 3:
+                        StartCoroutine(EnergyBombPattern());
+                        break;
+                    case 4:
+                        StartCoroutine(RockShotPattern());
+                        break;
+                    default:
+                        Debug.LogWarning("Invalid pattern number");
+                        break;
                 }
-                yield return null;
             }
-            isPattern = false; // 패턴 종료
         }
     }
 
-    void ShootEnergyBomb() //에너지볼 발사
+    IEnumerator RazerPattern() //1.레이저 패턴
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player"); //플레이어의 위치 찾기
-        if (player != null)
-        {
-            Vector3 targetPosition = player.transform.position; //플레이어의 위치를 타겟으로 설정
-            targetPosition.y -= 1f; //플레이어 위치의 y좌표를 -1만큼 조정
+        Debug.Log("1번");
+        isPatternRunning = true;
+        
+        float patternEndTime = Time.time + 17f; //*초 동안 패턴 실행
 
-            GameObject energyBomb = Instantiate(energyBombPrefab, transform.position, Quaternion.identity); //에너지 볼 생성
-            Vector2 direction = (targetPosition - transform.position).normalized; //타겟을 향하는 방향 계산
-            Rigidbody2D rb = energyBomb.GetComponent<Rigidbody2D>(); //에너지 볼에 힘을 가해 발사
-            rb.velocity = direction * energyBombSpeed;
+        while (Time.time < patternEndTime)
+        {
+            
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position; //플레이어의 현재 위치 가져오기
+
+            Vector3 spawnPosition = playerPosition; //razerPrefab의 중심을 플레이어 위치에 맞춰 생성
+            
+            Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)); //rotation Z값 랜덤설정
+
+           // yield return new WaitForSeconds(0.3f); //*초 딜레이
+
+            GameObject razerWarning = Instantiate(razerWarningPrefab, spawnPosition, randomRotation); //레이저 경고 오브젝트 생성
+            yield return new WaitForSeconds(0.5f); //*초 딜레이
+
+            Destroy(razerWarning); //*초 후에 레이저 경고 파괴
+
+            GameObject lazer = Instantiate(razerPrefab, spawnPosition, randomRotation); //레이저 오브젝트 생성
+            
+            Destroy(lazer, 2f); //*초 후에 레이저 파괴
+
+            yield return new WaitForSeconds(0.1f); //*초마다 생성
         }
+
+        // 레이저 패턴 애니메이션 종료
+        isPatternRunning = false;
     }
-    IEnumerator SpawnMonsterPattern() //몬스터 소환 패턴
+
+
+    IEnumerator MobSpawnPattern() //2.몹소환 패턴
     {
-        while (true)
+        Debug.Log("2번");
+        isPatternRunning = true; //패턴 실행중
+
+        int spawnCount = Random.Range(minSpawnCount, maxSpawnCount + 1); //랜덤 수 설정
+        
+        for (int i = 0; i < spawnCount; i++) //몹을 랜덤 위치에 생성
         {
-            yield return new WaitForSeconds(spawnTime); //spawnTime만큼 대기
+            float randomX = Random.Range(50f, 100f); //x축 랜덤 값
+            
+            float randomY = Random.Range(1.5f, -35f); //y축 랜덤 값
+           
+            Vector3 spawnPosition = new Vector3(randomX, randomY, 0f); //생성 위치 설정
+            
+            Instantiate(spawnMonsterPrefab, spawnPosition, Quaternion.identity); //몹 생성
+        }
 
-            int spawnCount = Random.Range(minSpawnCount, maxSpawnCount + 1); //생성할 몬스터 수 랜덤 설정
+        yield return new WaitForSeconds(10f); //*초 만큼 대기
 
-            for (int i = 0; i < spawnCount; i++)
-            {
-                Vector3 spawnPosition = transform.position; //생성 위치를 해당 오브젝트의 위치로 설정
-                spawnPosition.y += Random.Range(-5f, -40f); //Y 좌표를 랜덤하게 설정
-                spawnPosition.x += Random.Range(-40f, 40f); //X 좌표를 랜덤하게 설정
+        isPatternRunning = false; //패턴 종료
+    }
 
-                Instantiate(spawnMonsterPrefab, spawnPosition, Quaternion.identity); //몬스터 생성
-            }
+    IEnumerator EnergyBombPattern() //3.탄막 패턴
+    {
+        //bossAnimation.SetTrigger(""); //탄막 패턴 애니메이션
+        isPatternRunning = true;
+        Debug.Log("3번");
+        yield return new WaitForSeconds(patenTime);
+        isPatternRunning = false;
+    }
+
+    IEnumerator RockShotPattern() //4.낙석 패턴
+    {
+        //bossAnimation.SetTrigger(""); //낙석 패턴 애니메이션
+        isPatternRunning = true;
+        Debug.Log("4번");
+        yield return new WaitForSeconds(patenTime);
+        isPatternRunning = false;
+    }
+
+    void Die()
+    {
+        if(bossHP >= 0)
+        {
+            //bossAnimation.SetTrigger(""); //보스 사망 애니메이션
         }
     }
 }

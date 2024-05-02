@@ -95,7 +95,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774ec27c8857caf4ea9bb78a1aa7a4f5
+      internalID: 2043537236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa332e052f098b244915b38790a65007
+      internalID: 432381500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b97a49836d9744481fd49a2758a7b1
+      internalID: -607264982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_3
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ecf230bf44a0d41b5d974d222935c1
+      internalID: -1823554635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_4
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88cae08a12b960247b49068c23c6e8a9
+      internalID: 1194640168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_5
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0ea69322bd98d41aa69214ec65f91a
+      internalID: -1427708359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_6
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9b9d9d637165d43adf971558d442cc
+      internalID: 830534977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_7
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096fe4eea699fe24b90ad25d89fc1b82
+      internalID: -635706291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_8
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00415dbc1d5cfc5468d34ac08d937d2d
+      internalID: -643983993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_9
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d47b83664adf0cb43867421368cfbb0b
+      internalID: 1474629348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEnt_EnergyBomb_ChargingTrail_10
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 448
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fa388f87f22f34e8270bae38c450e6
+      internalID: 1639007627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +337,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ElderEnt_EnergyBomb_ChargingTrail_0: 2043537236
+      ElderEnt_EnergyBomb_ChargingTrail_1: 432381500
+      ElderEnt_EnergyBomb_ChargingTrail_10: 1639007627
+      ElderEnt_EnergyBomb_ChargingTrail_2: -607264982
+      ElderEnt_EnergyBomb_ChargingTrail_3: -1823554635
+      ElderEnt_EnergyBomb_ChargingTrail_4: 1194640168
+      ElderEnt_EnergyBomb_ChargingTrail_5: -1427708359
+      ElderEnt_EnergyBomb_ChargingTrail_6: 830534977
+      ElderEnt_EnergyBomb_ChargingTrail_7: -635706291
+      ElderEnt_EnergyBomb_ChargingTrail_8: -643983993
+      ElderEnt_EnergyBomb_ChargingTrail_9: 1474629348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

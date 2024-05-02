@@ -95,7 +95,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ae8d36409453046b9eb9497bf77e81
+      internalID: 1927473053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b29af995d014fb48a58865e3040da52
+      internalID: 610635666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d47acbe7ff03fa44bb9b67a20790700
+      internalID: -2098762581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_3
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce41202296d178c4c839cc174c7be292
+      internalID: 632329405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_4
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c8c9c6d718de7499cc99d14d4a626a
+      internalID: -932245870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_5
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179cf0f6a8eaef546a74a6e10985e2a3
+      internalID: -206855271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_6
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebab89b0554e35d4fbd0c0348b69dd1d
+      internalID: -51986192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_7
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20ecffd4eba434468d886c0edc6488f
+      internalID: -1764813731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_8
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51d8dd20a411664c9776a8f584bc704
+      internalID: 575981514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_9
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f72e9b46755cd4bb086efa356ad1b0
+      internalID: -1199060831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_10
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28954ad002de1634ab51ab480813a681
+      internalID: -2094517848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_11
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fe7d4720abaa540b584addf84471ec
+      internalID: 1796002708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_12
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6573fa3ebc17a1a4e87203e132caf4f6
+      internalID: 704979376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_13
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15c28b2f17b7bf4d86043cf839909dd
+      internalID: -907265620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_14
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5172e3fff2818f54d99b450f724dedb4
+      internalID: 1482845016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_15
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c34e1a66517e054a9355a1cf2c146e9
+      internalID: -993825234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elder_Ent_Energy_Charge_16
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 0
+        width: 145
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d9ea41d89895845b01944429dbafe2
+      internalID: 2128214938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +463,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Elder_Ent_Energy_Charge_0: 1927473053
+      Elder_Ent_Energy_Charge_1: 610635666
+      Elder_Ent_Energy_Charge_10: -2094517848
+      Elder_Ent_Energy_Charge_11: 1796002708
+      Elder_Ent_Energy_Charge_12: 704979376
+      Elder_Ent_Energy_Charge_13: -907265620
+      Elder_Ent_Energy_Charge_14: 1482845016
+      Elder_Ent_Energy_Charge_15: -993825234
+      Elder_Ent_Energy_Charge_16: 2128214938
+      Elder_Ent_Energy_Charge_2: -2098762581
+      Elder_Ent_Energy_Charge_3: 632329405
+      Elder_Ent_Energy_Charge_4: -932245870
+      Elder_Ent_Energy_Charge_5: -206855271
+      Elder_Ent_Energy_Charge_6: -51986192
+      Elder_Ent_Energy_Charge_7: -1764813731
+      Elder_Ent_Energy_Charge_8: 575981514
+      Elder_Ent_Energy_Charge_9: -1199060831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
