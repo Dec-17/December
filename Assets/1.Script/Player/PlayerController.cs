@@ -6,19 +6,23 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("속도")]
     public float playerSpeed = 5f; //플레이어 이동 속도
     public float playerRunSpeed = 10; //플레이어 달리기 속도
 
+    [Header("체력")]
     public float maxPlayerHP = 10; //플레이어 최대 체력
     public float playerHP = 10; //플레이어 체력
     public Slider healthSlider; //플레이어 체력 슬라이더
 
+    [Header("스테미너")]
     public float maxPlayerSP = 10; //플레이어 최대 스테미너
     public float playerSP = 10; //플레이어 스테미너
     public Slider staminaSlider; //플레이어 스테미너 슬라이더
 
     private bool isAttack = false; //플레이어가 공격중인지 확인하는 변수
 
+    [Header("스테이터스")]
     //플레이어 스테이터스
     public float playerATK = 1; //플레이어 공격력
     public float playerDEF = 1; //플레이어 방어력
@@ -26,15 +30,19 @@ public class PlayerController : MonoBehaviour
     private bool invincible = false; //플레이어의 무적 상태 여부
     public float invincibleDuration = 0.5f; //무적 상태 지속 시간
 
+    [Header("스프라이트")]
     public float playerColorDuration = 0.3f; //피격 시 스프라이트 색상이 변경되는 시간
     public Color playerDamageColor = new Color(1f, 0.6f, 0.6f, 1f); //피격 시 변경될 스프라이트가 색상
     public Color playerOriginalColor = new Color(1f, 1f, 1f, 1f); //플레이어의 기본 스프라이트 색상
 
+    [Header("이동 값")]
+    public float moveHorizontal;
+    public float moveVertical;
+
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D playerRigidbody;
-    public float moveHorizontal;
-    public float moveVertical;
+
 
     void Start()
     {

@@ -8,6 +8,7 @@
 *맵 제작	https://pixivan.itch.io/top-down-forest-tileset
 
 *맵 이동
+맵 이동시 area(카메라영역)이 계속 바뀌어야함
 
 *맵 기믹
 

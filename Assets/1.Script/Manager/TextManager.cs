@@ -9,16 +9,19 @@ using UnityEditor.Rendering;
 
 public class TextManager : MonoBehaviour
 {
-    private float talkLength = 3f; //대화 가능 범위
+    [Header("범위")]
     public GameObject talkTrue; //대화 가능한 범위에 들어왔는지 표시
+    public float talkLength = 3f; //대화 가능 범위
     private bool isInRange = false; //대화 가능 범위인지 확인
 
+    [Header("대화창")]
     public Text dialogueText; //다이얼로그 텍스트
     public GameObject dialogueWindow; //다이얼로그 대화칸
 
     private float typingSpeed = 0.1f; //타이핑모션 속도
     private bool isTyping = false; // 타이핑 모션 실행 여부 확인
 
+    [Header("대사 입력")]
     public string[] talk; //다이얼로그 텍스트를 입력 할 배열
     private int currentTalkIndex = 0; //현재 출력 중인 talk의 인덱스
     

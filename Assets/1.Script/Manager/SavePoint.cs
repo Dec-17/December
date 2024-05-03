@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class SavePoint : MonoBehaviour
 {
+    [Header("패널")]
     public GameObject savePanel; //세이브 패널
     private bool isSavePanelOpen = false; //세이브 패널 활성화 여부
+
+    [Header("범위")]
     public float saveLength = 3f; //세이브 가능 범위
-    public Text saveTrue; //세이브 가능한 범위에 들어왔는지 표시
     private bool isInRange = false; //세이브 가능 범위인지 확인
+    public Text saveTrue; //세이브 가능한 범위에 들어왔는지 표시
 
     private bool isPaused = false; //게임이 일시정지 되었는지
 

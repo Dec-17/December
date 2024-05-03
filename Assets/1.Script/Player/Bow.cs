@@ -6,18 +6,23 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
+    [Header("활")]
     public bool bowVisible = false; //활이 보이는지 여부를 나타내는 변수
     public GameObject BowObj; //활 오브젝트를 담을 공간
     public Animator bowAnimator; //활의 애니메이터
+
+    [Header("화살")]
     public GameObject ArrowObj; //화살 오브젝트를 담을 공간
     public Transform ArrowSpawnPoint; //화살이 생성될 위치
     public float arrowInterval = 0.7f; //화살 생성 간격
 
+    [Header("플레이어")]
     public GameObject PlayerObj; //플레이어 오브젝트를 담을 공간
     public Animator PlayerAnimator; //플레이어의 애니메이터
     PlayerController playerController;
     SpriteRenderer spriteRenderer;
 
+    [Header("이동 값")]
     public bool IsPlayerX = false;
     public bool IsPlayerDown = false;
     public bool IsPlayerUp = false;

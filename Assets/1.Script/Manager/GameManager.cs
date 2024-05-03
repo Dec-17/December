@@ -5,11 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [Header("재화")]
     public int goldInt = 0;
     public Text goldText;
+
+    [Header("패널")]
     public GameObject settingPanel;
     public GameObject inventoryPanel;
+
+    [Header("에임포인트")]
     public GameObject aimPoint;
+
     private bool isPaused = false; //게임이 일시정지 되었는지
     private bool isSettingPanelOpen = false; //설정 패널 활성화 여부
     private bool isInventoryPanelOpen = false; //인벤토리가 열려 있는지

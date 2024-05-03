@@ -5,23 +5,29 @@ using UnityEngine.EventSystems;
 
 public class Mob : MonoBehaviour
 {
+    [Header("스테이터스")]
     public float mobHP; //몹 오브젝트의 체력
+    public float mobSpeed; //몬스터 이동 속도
+    public float detectionRange; //몬스터가 플레이어를 감지할 범위
+    //20으로 하면 화면에 보일때만 따라옴
+
+    [Header("아이템 드롭")]
     public GameObject[] NomalItem; //일반 아이템 배열
     public GameObject[] EpicItem; //희귀 아이템 배열
     public float NomalItemProbability; //일반 아이템 드랍 확률
     public float EpicItemProbability; //희귀 아이템 드랍 확률    // 확률 1 = 100%
 
-    public float mobSpeed; //몬스터 이동 속도
-    public float detectionRange; //몬스터가 플레이어를 감지할 범위     //20으로 하면 화면에 보일때만 따라옴
-
+    [Header("스프라이트")]
     public float damageColorDuration = 0.2f; //피격 시 스프라이트 색상이 변경되는 시간
     public Color damageColor = new Color(1f, 0.5f, 0.5f); //피격 시 변경될 스프라이트가 색상
     public Color originalColor = new Color(1f, 1f, 1f); //몹의 기본 스프라이트 색상
 
+    [Header("변수선언")]
     PlayerController playerController;
+    SpriteRenderer mobRenderer;
     public Rigidbody2D mobRigidbody;
     public Animation mobAnimation;
-    SpriteRenderer mobRenderer;
+
 
     private void Awake()
     {
@@ -30,12 +36,12 @@ public class Mob : MonoBehaviour
         mobAnimation = GetComponent<Animation>();
         mobRenderer = GetComponent<SpriteRenderer>();
     }
-    
+
     void Start()
     {
-        
+
     }
-  
+
     virtual public void Testvirtual()
     {
         Debug.Log("오버라이드 테스트");
