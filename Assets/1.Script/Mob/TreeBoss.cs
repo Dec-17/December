@@ -108,10 +108,11 @@ public class TreeBoss : MonoBehaviour
         Debug.Log("레이저 패턴 실행");
         isPatternRunning = true;
 
-        bossEffect.SetActive(true); //bossEffect를 활성화
+        //bossEffect.SetActive(true); //bossEffect를 활성화
+        bossAnimator.SetBool("Razer", true); //애니메이션 실행
 
 
-        yield return new WaitForSeconds(1f); //bossEffect를 *초 후에 비활성화
+        //yield return new WaitForSeconds(1f); //bossEffect를 *초 후에 비활성화
         bossEffect.SetActive(false);
 
         float patternEndTime = Time.time + razerDuration; //razerDuration 동안 패턴 실행
@@ -139,7 +140,7 @@ public class TreeBoss : MonoBehaviour
             yield return new WaitForSeconds(0.1f); //*초마다 생성
         }
 
-        // 레이저 패턴 애니메이션 종료
+        bossAnimator.SetBool("Razer", false); //애니메이션 종료
         isPatternRunning = false;
     }
 
@@ -147,6 +148,8 @@ public class TreeBoss : MonoBehaviour
     {
         Debug.Log("몹소환 패턴 실행");
         isPatternRunning = true; //패턴 실행중
+
+        bossAnimator.SetBool("MobSpawn", true); //애니메이션 실행
 
         int spawnCount = Random.Range(minSpawnCount, maxSpawnCount + 1); //랜덤 수 설정
 
@@ -163,15 +166,21 @@ public class TreeBoss : MonoBehaviour
 
         yield return new WaitForSeconds(mobSpawnDuration); //mobSpawnDuration 만큼 대기
 
+        bossAnimator.SetBool("MobSpawn", false); //애니메이션 종료
         isPatternRunning = false; //패턴 종료
+
     }
 
     IEnumerator EnergyBombPattern() //3.탄막 패턴
     {
-        //bossAnimation.SetTrigger(""); //탄막 패턴 애니메이션
         isPatternRunning = true;
         Debug.Log("탄막 패턴 실행");
+
+        bossAnimator.SetBool("EnergyBomb", true); //애니메이션 실행
+
         yield return new WaitForSeconds(1f); //*초동안 실행
+
+        bossAnimator.SetBool("EnergyBomb", false); //애니메이션 종료
         isPatternRunning = false;
     }
 
@@ -182,13 +191,13 @@ public class TreeBoss : MonoBehaviour
 
         cameraMovement.earthQuakeStart();//화면 흔들림효과 실행
 
-        bossAnimator.SetBool("RockShot", true); //낙석 패턴 애니메이션 실행
+        bossAnimator.SetBool("RockShot", true); //애니메이션 실행
 
         //Instantiate(rockShotPrefab, transform.position, Quaternion.identity); //낙석생성
 
         yield return new WaitForSeconds(rockShotDuration); //*초동안 실행
 
-        bossAnimator.SetBool("RockShot", false); //낙석 패턴 애니메이션 종료
+        bossAnimator.SetBool("RockShot", false); //애니메이션 종료
         isPatternRunning = false;
     }
 
@@ -205,3 +214,9 @@ public class TreeBoss : MonoBehaviour
         }
     }
 }
+//애니메이션에 맞춰서 공격패턴 다듬기
+
+//레이저패턴 실행 시 애니메이션만 재생
+//공격하는 부분은 매서드로 만들어서
+//애니메이션 이벤트로 실행
+//애니메이션이 끝나면 공격도 종료
