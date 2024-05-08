@@ -10,29 +10,30 @@ public class TreeBoss : MonoBehaviour
     [Header("체력")]
     //체력
     public float bossHP = 50f; //체력
-    public float bossLeftHandHP = 30f; //왼손 체력
-    public float bossRightHandHP = 30f; //오른손 체력
+    public float bossLeftHandHP = 20f; //왼손 체력
+    public float bossRightHandHP = 20f; //오른손 체력
 
     [Header("레이저 패턴")]
     //레이저 패턴
     public GameObject razerPrefab; //레이저 프리팹
     public GameObject razerWarningPrefab; //레이저 경고 프리팹
     public GameObject bossEffect; //에너지 모으는 이팩트
-    public float razerDuration = 10; //레이저 패턴 지속시간
+    public float razerDuration = 3.5f; //레이저 패턴 지속시간
 
     [Header("몹소환 패턴")]
     //몹소환 패턴
     public GameObject spawnMonsterPrefab; //소환몹 프리팹
     public int minSpawnCount = 1; //최소 소환 몬스터 수
     public int maxSpawnCount = 3; //최대 소환 몬스터 수
-    public float mobSpawnDuration = 20; //몹소환 패턴 지속시간
+    public float mobSpawnDuration = 15; //몹소환 패턴 지속시간
 
     [Header("탄막 패턴")]
     //탄막 패턴
     public GameObject energyBombPrefab; //탄막 프리팹
+    public GameObject energyBombMiniPrefab; //미니탄막 프리팹
     public GameObject energyChargePrefab; //탄막 차징 모션 프리팹
     public float energyBombSpeed = 20f; //탄막 속도
-    public float energyBombDuration = 10; //탄막 패턴 지속시간
+    public float energyBombDuration = 10f; //탄막 패턴 지속시간
 
     [Header("낙석 패턴")]
     //낙석 패턴
@@ -40,8 +41,9 @@ public class TreeBoss : MonoBehaviour
     public float rockShotDuration = 10; //낙석 패턴 지속시간
 
 
-    //스위치 변수
-    bool isPatternRunning = false;
+    [Header("기타")]
+    public bool isPatternRunning = false;
+    public float patternRunningTIme = 9f;
 
     public CameraMovement cameraMovement;
     Collider bossColliders;
@@ -60,61 +62,69 @@ public class TreeBoss : MonoBehaviour
         cameraMovement = GetComponent<CameraMovement>();
         cameraMovement = FindObjectOfType<CameraMovement>();
 
-        
-        StartCoroutine(RandomPatternCaller()); //*초마다 패턴 호출을 시작
+
+        //StartCoroutine(RandomPatternCaller()); //*초마다 패턴 호출을 시작
+        StartCoroutine(RockShotPattern()); //테스트중
     }
 
     void Update()
     {
-
+        
     }
 
-    
-    IEnumerator RandomPatternCaller() //*초마다 패턴을 랜덤으로 호출하는 코루틴
-    {
-        while (true)
-        {
-            //bossAnimation.SetTrigger(""); //보스 기본 애니메이션
-            yield return new WaitForSeconds(0f); //*초 대기
 
-            if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
-            {
-                int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
+    //IEnumerator RandomPatternCaller() //*초마다 패턴을 랜덤으로 호출하는 코루틴
+    //{
+    //    while (true)
+    //    {
+    //        //bossAnimation.SetTrigger(""); //보스 기본 애니메이션
+    //        yield return new WaitForSeconds(patternRunningTIme); //patternRunningTIme만큼 대기
 
-                switch (patternNumber)
-                {
-                    case 1:
-                        StartCoroutine(RazerPattern());
-                        break;
-                    case 2:
-                        StartCoroutine(MobSpawnPattern());
-                        break;
-                    case 3:
-                        StartCoroutine(EnergyBombPattern());
-                        break;
-                    case 4:
-                        StartCoroutine(RockShotPattern());
-                        break;
-                    default:
-                        Debug.LogWarning("Invalid pattern number");
-                        break;
-                }
-            }
-        }
-    }
-    
-    IEnumerator RazerPattern() //1.레이저 패턴
+    //        if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
+    //        {
+    //            int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
+
+    //            switch (patternNumber)
+    //            {
+    //                case 1:
+    //                    StartCoroutine(RazerPattern());
+    //                    break;
+    //                case 2:
+    //                    StartCoroutine(MobSpawnPattern());
+    //                    break;
+    //                case 3:
+    //                    StartCoroutine(EnergyBombPattern());
+    //                    break;
+    //                case 4:
+    //                    StartCoroutine(RockShotPattern());
+    //                    break;
+    //                default:
+    //                    Debug.LogWarning("Invalid pattern number");
+    //                    break;
+    //            }
+    //        }
+    //    }
+    //}
+
+    IEnumerator RazerPattern() //1-1.레이저 패턴
     {
         Debug.Log("레이저 패턴 실행");
         isPatternRunning = true;
 
-        //bossEffect.SetActive(true); //bossEffect를 활성화
+        bossEffect.SetActive(true); //bossEffect를 활성화
         bossAnimator.SetBool("Razer", true); //애니메이션 실행
 
-
-        //yield return new WaitForSeconds(1f); //bossEffect를 *초 후에 비활성화
+        yield return new WaitForSeconds(1f); //bossEffect를 *초 후에 비활성화
         bossEffect.SetActive(false);
 
+        yield return new WaitForSeconds(3.5f); //********************
+
+        bossAnimator.SetBool("Razer", false); //애니메이션 종료
+        isPatternRunning = false;
+    }
+
+    public IEnumerator RazerEvent() //1-2.레이저 패턴
+    {
         float patternEndTime = Time.time + razerDuration; //razerDuration 동안 패턴 실행
 
         while (Time.time < patternEndTime)
@@ -139,9 +149,6 @@ public class TreeBoss : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f); //*초마다 생성
         }
-
-        bossAnimator.SetBool("Razer", false); //애니메이션 종료
-        isPatternRunning = false;
     }
 
     IEnumerator MobSpawnPattern() //2.몹소환 패턴
@@ -150,6 +157,8 @@ public class TreeBoss : MonoBehaviour
         isPatternRunning = true; //패턴 실행중
 
         bossAnimator.SetBool("MobSpawn", true); //애니메이션 실행
+
+        yield return new WaitForSeconds(1);
 
         int spawnCount = Random.Range(minSpawnCount, maxSpawnCount + 1); //랜덤 수 설정
 
@@ -163,10 +172,11 @@ public class TreeBoss : MonoBehaviour
 
             Instantiate(spawnMonsterPrefab, spawnPosition, Quaternion.identity); //몹 생성
         }
-
+        yield return new WaitForSeconds(0.4f);
+        bossAnimator.SetBool("MobSpawn", false); //애니메이션 종료
         yield return new WaitForSeconds(mobSpawnDuration); //mobSpawnDuration 만큼 대기
 
-        bossAnimator.SetBool("MobSpawn", false); //애니메이션 종료
+        Debug.Log("패턴종료");
         isPatternRunning = false; //패턴 종료
 
     }
@@ -176,11 +186,39 @@ public class TreeBoss : MonoBehaviour
         isPatternRunning = true;
         Debug.Log("탄막 패턴 실행");
 
+        bossEffect.SetActive(true); //bossEffect를 활성화
         bossAnimator.SetBool("EnergyBomb", true); //애니메이션 실행
 
-        yield return new WaitForSeconds(1f); //*초동안 실행
+        yield return new WaitForSeconds(1f); //bossEffect를 *초 후에 비활성화
+        bossEffect.SetActive(false); //bossEffect를 비활성화
+        energyChargePrefab.SetActive(true); //에너지차징 오브젝트 활성화
 
+        yield return new WaitForSeconds(1f); // *초대기
+
+        float startTime = Time.time;
+        while (Time.time < startTime + energyBombDuration) // energyBombDuration 동안 반복
+        {
+            // energyBombPrefab 생성 및 설정
+            GameObject energyBomb = Instantiate(energyBombPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D energyBombRb = energyBomb.GetComponent<Rigidbody2D>();
+            energyBombRb.velocity = new Vector2(Random.Range(-10f, 10f), -10f); // 랜덤한 X축 속도와 Y축 속도 설정
+
+            // energyBombMiniPrefab 생성 및 설정
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject energyBombMini = Instantiate(energyBombMiniPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D energyBombMiniRb = energyBombMini.GetComponent<Rigidbody2D>();
+                energyBombMiniRb.velocity = new Vector2(Random.Range(-10f, 10f), -10f); // 랜덤한 X축 속도와 Y축 속도 설정
+            }
+
+            yield return new WaitForSeconds(1f); // *초마다 대기
+        }
+
+
+
+        energyChargePrefab.SetActive(false); //에너지차징 오브젝트 비활성화
         bossAnimator.SetBool("EnergyBomb", false); //애니메이션 종료
+
         isPatternRunning = false;
     }
 
@@ -201,7 +239,7 @@ public class TreeBoss : MonoBehaviour
         isPatternRunning = false;
     }
 
-    void OnTriggerEnter2D(Collider2D other) //충돌처리
+    void OnTriggerEnter2D(Collider2D other) //보스 사망 애니메이션
     {
         if (other.CompareTag("Arrow")) //충돌이 일어난 오브젝트의 태그가 "Arrow"일떄
         {
@@ -209,14 +247,19 @@ public class TreeBoss : MonoBehaviour
 
             if (bossHP <= 0) //체력이 0이하가 된다면
             {
-                Destroy(gameObject);
+                Debug.Log("보스사망");
+                isPatternRunning = true; //패턴을 실행하지 못하도록 패턴실행중 상태로 변경
+                
+                StartCoroutine(BossDead());
             }
         }
     }
+    IEnumerator BossDead() //보스 오브젝트 파괴
+    {
+        bossAnimator.SetBool("BossDead", true); //보스 사망 애니메이션 재생
+        yield return new WaitForSeconds(1f);
+        cameraMovement.earthQuakeStart2();//화면 흔들림효과 실행
+        yield return new WaitForSeconds(7f);
+        Destroy(gameObject); //오브젝트 파괴
+    }
 }
-//애니메이션에 맞춰서 공격패턴 다듬기
-
-//레이저패턴 실행 시 애니메이션만 재생
-//공격하는 부분은 매서드로 만들어서
-//애니메이션 이벤트로 실행
-//애니메이션이 끝나면 공격도 종료

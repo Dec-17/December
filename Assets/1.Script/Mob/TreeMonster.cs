@@ -6,7 +6,7 @@ public class TreeMonster : Mob
 {
     void Start()
     {
-        mobHP = 10f;
+        mobHP = 5f;
         NomalItemProbability = 0.85f;
         EpicItemProbability = 0.15f;
         mobSpeed = 3f;
