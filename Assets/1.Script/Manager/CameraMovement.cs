@@ -7,7 +7,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Transform playerTransform; //플레이어의 Transform을 저장할 변수
-    public BoxCollider2D boxcol;
+    public PolygonCollider2D polCol;
 
     public float minX;
     public float maxX;
@@ -27,7 +27,7 @@ public class CameraMovement : MonoBehaviour
         cameraHalfWidth = cam.aspect * cameraHalfHeight;
 
         // 맵의 경계를 BoxCollider2D로부터 가져옴
-        Bounds bounds = boxcol.bounds;
+        Bounds bounds = polCol.bounds;
         Vector3 min = bounds.min;
         Vector3 max = bounds.max;
 
