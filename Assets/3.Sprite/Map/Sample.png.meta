@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sample_0
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 930
+        width: 635
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd13c5d9e1b24c94aa12d8e2abf16e7c
+      internalID: -685082854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sample_1
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 895
+        width: 550
+        height: 920
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a860de4aab0b3bc498b5eb9fb9868888
+      internalID: 2094308998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sample_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 150
+        width: 435
+        height: 730
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5562d821fde5dd74e9b8c460c805fc26
+      internalID: 1615906180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sample_3
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 180
+        width: 560
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b64debd0b88f7499eadcbfab47f153
+      internalID: -1187499428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sample_0: -685082854
+      Sample_1: 2094308998
+      Sample_2: 1615906180
+      Sample_3: -1187499428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
