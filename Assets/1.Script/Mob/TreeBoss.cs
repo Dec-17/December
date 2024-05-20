@@ -63,48 +63,47 @@ public class TreeBoss : MonoBehaviour
         cameraMovement = FindObjectOfType<CameraMovement>();
 
 
-        //StartCoroutine(RandomPatternCaller()); //*초마다 패턴 호출을 시작
-        StartCoroutine(RockShotPattern()); //테스트중
+        StartCoroutine(RandomPatternCaller()); //*초마다 패턴 호출을 시작
     }
 
     void Update()
     {
-        
+
     }
 
 
-    //IEnumerator RandomPatternCaller() //*초마다 패턴을 랜덤으로 호출하는 코루틴
-    //{
-    //    while (true)
-    //    {
-    //        //bossAnimation.SetTrigger(""); //보스 기본 애니메이션
-    //        yield return new WaitForSeconds(patternRunningTIme); //patternRunningTIme만큼 대기
+    IEnumerator RandomPatternCaller() //*초마다 패턴을 랜덤으로 호출하는 코루틴
+    {
+        while (true)
+        {
+            //bossAnimation.SetTrigger(""); //보스 기본 애니메이션
+            yield return new WaitForSeconds(patternRunningTIme); //patternRunningTIme만큼 대기
 
-    //        if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
-    //        {
-    //            int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
+            if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
+            {
+                int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
 
-    //            switch (patternNumber)
-    //            {
-    //                case 1:
-    //                    StartCoroutine(RazerPattern());
-    //                    break;
-    //                case 2:
-    //                    StartCoroutine(MobSpawnPattern());
-    //                    break;
-    //                case 3:
-    //                    StartCoroutine(EnergyBombPattern());
-    //                    break;
-    //                case 4:
-    //                    StartCoroutine(RockShotPattern());
-    //                    break;
-    //                default:
-    //                    Debug.LogWarning("Invalid pattern number");
-    //                    break;
-    //            }
-    //        }
-    //    }
-    //}
+                switch (patternNumber)
+                {
+                    case 1:
+                        StartCoroutine(RazerPattern());
+                        break;
+                    case 2:
+                        StartCoroutine(MobSpawnPattern());
+                        break;
+                    case 3:
+                        StartCoroutine(EnergyBombPattern());
+                        break;
+                    case 4:
+                        StartCoroutine(RockShotPattern());
+                        break;
+                    default:
+                        Debug.LogWarning("Invalid pattern number");
+                        break;
+                }
+            }
+        }
+    }
 
     IEnumerator RazerPattern() //1-1.레이저 패턴
     {
@@ -249,7 +248,7 @@ public class TreeBoss : MonoBehaviour
             {
                 Debug.Log("보스사망");
                 isPatternRunning = true; //패턴을 실행하지 못하도록 패턴실행중 상태로 변경
-                
+
                 StartCoroutine(BossDead());
             }
         }
