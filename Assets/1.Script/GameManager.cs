@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     [Header("재화")]
@@ -22,12 +23,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false; //게임 시작 시 마우스를 숨김
-        //UpdateAimPointPosition(); //aimPoint의 초기 위치 설정
+        Cursor.visible = false; //게임 시작 시 마우스를 숨김***
+        UpdateAimPointPosition(); //aimPoint의 초기 위치 설정***
     }
 
     void Update()
     {
+
         UpdateGoldText(); //골드 소지량 업데이트
 
         if (Input.GetKeyDown(KeyCode.Escape)) //설정패널 또는 인벤토리 여닫기
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         UpdateGoldText(); //골드 소지량 업데이트
 
-        //UpdateAimPointPosition(); //마우스 위치에 따라 aimPoint 이동
+        UpdateAimPointPosition(); //마우스 위치에 따라 aimPoint 이동***
     }
 
     public void OpenInventory() //인벤토리 열기
@@ -125,12 +127,14 @@ public class GameManager : MonoBehaviour
     {
         isPaused = true;
         Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
     public void ResumeGame() //게임 재개
     {
         isPaused = false;
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
     void UpdateGoldText() //골드 소지량 텍스트 업데이트
