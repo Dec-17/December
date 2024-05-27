@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("스프라이트")]
     public float playerColorDuration = 0.3f; //피격 시 스프라이트 색상이 변경되는 시간
-    public Color playerDamageColor = new Color(1f, 0.6f, 0.6f, 1f); //피격 시 변경될 스프라이트가 색상
-    public Color playerOriginalColor = new Color(1f, 1f, 1f, 1f); //플레이어의 기본 스프라이트 색상
+    public Color playerDamageColor = new Color(1f, 0.4f, 0.4f, 1f); //피격 시 변경될 스프라이트가 색상
+    public Color playerOriginalColor = new Color(0.8f, 0.8f, 0.8f, 1f); //플레이어의 기본 스프라이트 색상
 
     [Header("이동 값")]
     public float moveHorizontal;
