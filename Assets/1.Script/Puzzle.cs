@@ -9,6 +9,9 @@ public class Puzzle : MonoBehaviour
     public GameObject puzzleDoor;
     public GameObject doorAnimation;
 
+    public GameObject [] statue001;
+    public GameObject [] statue002;
+
     void Start()
     {
 
@@ -23,6 +26,15 @@ public class Puzzle : MonoBehaviour
         else if (password.Length == 4 && password != passwordO)
         {
             password = "";
+            statue001[0].SetActive(true);
+            statue001[1].SetActive(true);
+            statue001[2].SetActive(true);
+            statue001[3].SetActive(true);
+
+            statue002[0].SetActive(false);
+            statue002[1].SetActive(false);
+            statue002[2].SetActive(false);
+            statue002[3].SetActive(false);
         }
     }
     IEnumerator DoorOpen()

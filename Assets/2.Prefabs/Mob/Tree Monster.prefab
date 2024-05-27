@@ -149,17 +149,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobHP: 0
+  mobSpeed: 0
+  detectionRange: 0
   NomalItem:
   - {fileID: 7074073911286779776, guid: 8d5a75a50588e5d4e992217578d06675, type: 3}
   - {fileID: 7074073911286779776, guid: 8d5a75a50588e5d4e992217578d06675, type: 3}
   - {fileID: 7074073911286779776, guid: 8d5a75a50588e5d4e992217578d06675, type: 3}
   - {fileID: 7074073911286779776, guid: 8d5a75a50588e5d4e992217578d06675, type: 3}
   EpicItem:
-  - {fileID: 4488695010715233130, guid: c9829a1cf8a1a984bbc98b039346539d, type: 3}
+  - {fileID: 7074073911286779776, guid: 8d5a75a50588e5d4e992217578d06675, type: 3}
   NomalItemProbability: 0
   EpicItemProbability: 0
-  mobSpeed: 0
-  detectionRange: 0
   damageColorDuration: 0.2
   damageColor: {r: 1, g: 0.5, b: 0.5, a: 1}
   originalColor: {r: 1, g: 1, b: 1, a: 1}
