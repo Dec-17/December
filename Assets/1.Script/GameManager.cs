@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateGoldText() //골드 소지량 텍스트 업데이트
     {
-        goldText.text = "Gold: " + goldInt.ToString();
+        goldText.text = goldInt.ToString() + " Gold";
     }
 
     void UpdateAimPointPosition() //에임포인트

@@ -15,6 +15,8 @@ public class MapManager : MonoBehaviour
     public Collider2D[] col2d;
     CinemachineConfiner confiner;
 
+    public GameObject lightBug;
+
     private void Start()
     {
         confiner = cam.GetComponent<CinemachineConfiner>();
@@ -38,6 +40,7 @@ public class MapManager : MonoBehaviour
             if (col2d.Length > 1)
             {
                 confiner.m_BoundingShape2D = col2d[1];
+                lightBug.SetActive(false);
             }
             else
             {
@@ -51,6 +54,7 @@ public class MapManager : MonoBehaviour
             if (col2d.Length > 0)
             {
                 confiner.m_BoundingShape2D = col2d[0];
+                lightBug.SetActive(true);
             }
             else
             {
@@ -64,6 +68,7 @@ public class MapManager : MonoBehaviour
             if (col2d.Length > 2)
             {
                 confiner.m_BoundingShape2D = col2d[2];
+                lightBug.SetActive(true);
             }
             else
             {
@@ -77,6 +82,7 @@ public class MapManager : MonoBehaviour
             if (col2d.Length > 1)
             {
                 confiner.m_BoundingShape2D = col2d[1];
+                lightBug.SetActive(false);
             }
             else
             {
