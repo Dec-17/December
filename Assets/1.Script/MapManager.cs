@@ -11,6 +11,12 @@ public class MapManager : MonoBehaviour
     public Transform map03;
     public Transform map04;
 
+    public Transform quiaMap01;
+    public Transform quiaMap02;
+    public Transform quiaMap03;
+    public Transform quiaMap04;
+    public Transform quiaMap05;
+
     public GameObject cam;
     public Collider2D[] col2d;
     CinemachineConfiner confiner;
@@ -83,6 +89,62 @@ public class MapManager : MonoBehaviour
             {
                 confiner.m_BoundingShape2D = col2d[1];
                 lightBug.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
+            }
+        }
+        else if (other.gameObject.name == "QuizMap01")
+        {
+            Vector3 newPosition = new Vector3(quiaMap05.position.x, quiaMap05.position.y - 1.6f, quiaMap05.position.z);
+            transform.position = newPosition;
+            if (col2d.Length > 0)
+            {
+                confiner.m_BoundingShape2D = col2d[0];
+                lightBug.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
+            }
+        }
+        else if (other.gameObject.name == "QuizMap02")
+        {
+            Vector3 newPosition = new Vector3(quiaMap05.position.x, quiaMap05.position.y - 1.6f, quiaMap05.position.z);
+            transform.position = newPosition;
+            if (col2d.Length > 0)
+            {
+                confiner.m_BoundingShape2D = col2d[0];
+                lightBug.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
+            }
+        }
+        else if (other.gameObject.name == "QuizMap03")
+        {
+            Vector3 newPosition = new Vector3(quiaMap05.position.x, quiaMap05.position.y - 1.6f, quiaMap05.position.z);
+            transform.position = newPosition;
+            if (col2d.Length > 0)
+            {
+                confiner.m_BoundingShape2D = col2d[0];
+                lightBug.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
+            }
+        }
+        else if (other.gameObject.name == "QuizMap04")
+        {
+            Vector3 newPosition = new Vector3(quiaMap05.position.x, quiaMap05.position.y - 1.6f, quiaMap05.position.z);
+            transform.position = newPosition;
+            if (col2d.Length > 0)
+            {
+                confiner.m_BoundingShape2D = col2d[0];
+                lightBug.SetActive(true);
             }
             else
             {

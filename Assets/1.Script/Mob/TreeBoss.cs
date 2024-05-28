@@ -81,7 +81,7 @@ public class TreeBoss : MonoBehaviour
 
             if (!isPatternRunning) // 패턴이 실행 중이 아닐 때만 패턴을 호출
             {
-                int patternNumber = Random.Range(1, 5); // 1에서 4까지 랜덤한 패턴 번호 생성
+                int patternNumber = Random.Range(1, 4); // 1에서 4까지 랜덤한 패턴 번호 생성
 
                 switch (patternNumber)
                 {
@@ -94,9 +94,9 @@ public class TreeBoss : MonoBehaviour
                     case 3:
                         StartCoroutine(EnergyBombPattern());
                         break;
-                    case 4:
-                        StartCoroutine(RockShotPattern());
-                        break;
+                    //case 4:
+                        //StartCoroutine(RockShotPattern());
+                        //break;
                     default:
                         Debug.LogWarning("Invalid pattern number");
                         break;
@@ -221,22 +221,22 @@ public class TreeBoss : MonoBehaviour
         isPatternRunning = false;
     }
 
-    IEnumerator RockShotPattern() //4.낙석 패턴
-    {
-        Debug.Log("낙석 패턴 실행");
-        isPatternRunning = true;
+    //IEnumerator RockShotPattern() //4.낙석 패턴
+    //{
+    //    Debug.Log("낙석 패턴 실행");
+    //    isPatternRunning = true;
 
-        cameraMovement.earthQuakeStart();//화면 흔들림효과 실행
+    //    cameraMovement.earthQuakeStart();//화면 흔들림효과 실행
 
-        bossAnimator.SetBool("RockShot", true); //애니메이션 실행
+    //    bossAnimator.SetBool("RockShot", true); //애니메이션 실행
 
-        //Instantiate(rockShotPrefab, transform.position, Quaternion.identity); //낙석생성
+    //    //Instantiate(rockShotPrefab, transform.position, Quaternion.identity); //낙석생성
 
-        yield return new WaitForSeconds(rockShotDuration); //*초동안 실행
+    //    yield return new WaitForSeconds(rockShotDuration); //*초동안 실행
 
-        bossAnimator.SetBool("RockShot", false); //애니메이션 종료
-        isPatternRunning = false;
-    }
+    //    bossAnimator.SetBool("RockShot", false); //애니메이션 종료
+    //    isPatternRunning = false;
+    //}
 
     void OnTriggerEnter2D(Collider2D other) //보스 사망 애니메이션
     {
