@@ -40,10 +40,14 @@ public class TreeBoss : MonoBehaviour
     public GameObject rockShotPrefab; //낙석 프리팹
     public float rockShotDuration = 10; //낙석 패턴 지속시간
 
+    //[Header("보스전 시작")]
+    //public float bossLength = 10f;
 
     [Header("기타")]
     public bool isPatternRunning = false;
     public float patternRunningTIme = 9f;
+    public GameObject wall;
+    public GameObject bossStart;
 
     public CameraMovement cameraMovement;
     Collider bossColliders;
@@ -95,8 +99,8 @@ public class TreeBoss : MonoBehaviour
                         StartCoroutine(EnergyBombPattern());
                         break;
                     //case 4:
-                        //StartCoroutine(RockShotPattern());
-                        //break;
+                    //StartCoroutine(RockShotPattern());
+                    //break;
                     default:
                         Debug.LogWarning("Invalid pattern number");
                         break;
@@ -163,9 +167,9 @@ public class TreeBoss : MonoBehaviour
 
         for (int i = 0; i < spawnCount; i++) //몹을 랜덤 위치에 생성
         {
-            float randomX = Random.Range(50f, 100f); //x축 랜덤 값
+            float randomX = Random.Range(55f, 105f); //x축 랜덤 값
 
-            float randomY = Random.Range(1.5f, -35f); //y축 랜덤 값
+            float randomY = Random.Range(155f, 170f); //y축 랜덤 값
 
             Vector3 spawnPosition = new Vector3(randomX, randomY, 0f); //생성 위치 설정
 
@@ -243,19 +247,22 @@ public class TreeBoss : MonoBehaviour
         if (other.CompareTag("Arrow")) //충돌이 일어난 오브젝트의 태그가 "Arrow"일떄
         {
             bossHP--; //playerController.playerATK; //HP감소
-
+            Debug.Log("보스체력 감소");
             if (bossHP <= 0) //체력이 0이하가 된다면
             {
                 Debug.Log("보스사망");
                 isPatternRunning = true; //패턴을 실행하지 못하도록 패턴실행중 상태로 변경
-
+                StopAllCoroutines();
                 StartCoroutine(BossDead());
+                bossStart.SetActive(false);
+                //wall.SetActive(false);
             }
         }
     }
     IEnumerator BossDead() //보스 오브젝트 파괴
     {
-        bossAnimator.SetBool("BossDead", true); //보스 사망 애니메이션 재생
+        Debug.Log("보스사망애니메이션 시작");
+        bossAnimator.SetTrigger("BossDead"); //보스 사망 애니메이션 재생
         yield return new WaitForSeconds(1f);
         cameraMovement.earthQuakeStart2();//화면 흔들림효과 실행
         yield return new WaitForSeconds(7f);

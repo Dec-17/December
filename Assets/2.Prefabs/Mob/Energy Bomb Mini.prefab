@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1657080758454022871}
   - component: {fileID: 6967578231003284456}
   - component: {fileID: -2479800999690687706}
+  - component: {fileID: 812490920870202088}
   m_Layer: 0
   m_Name: Energy Bomb Mini
   m_TagString: Mob
@@ -170,3 +171,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &812490920870202088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948743122544565373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6cc2cad5e2b4f4d8b404801a7cf919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

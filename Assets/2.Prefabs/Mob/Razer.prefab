@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8757746948918069670}
   - component: {fileID: 6758948164972639671}
   - component: {fileID: 1974008300350514212}
+  - component: {fileID: 1559404679861600306}
   m_Layer: 0
   m_Name: Razer
   m_TagString: Mob
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 32.5625, y: 4.0625}
   m_EdgeRadius: 0
+--- !u!114 &1559404679861600306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637911251528976549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6cc2cad5e2b4f4d8b404801a7cf919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
