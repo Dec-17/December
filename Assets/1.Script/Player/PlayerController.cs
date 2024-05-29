@@ -50,8 +50,17 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerRigidbody = GetComponent<Rigidbody2D>();
+
+        StartCoroutine(StaminaAutoHeal());
     }
 
+    private void OnEnable()
+    {
+        //초기화
+        playerHP = maxPlayerHP;
+        invincible = false;
+        StartCoroutine(StaminaAutoHeal());
+    }
     private void Update()
     {
         //플레이어 달리기

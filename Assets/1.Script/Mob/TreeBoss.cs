@@ -79,6 +79,13 @@ public class TreeBoss : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        isPatternRunning = false;
+        StopAllCoroutines();
+        StartCoroutine(RandomPatternCaller());
+    }
+
     IEnumerator BossReset()
     {
         yield return new WaitForSeconds(3f);

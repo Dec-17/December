@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         mapManager.respawnLight();
         playerOriginal.SetActive(true);
         youDied.SetActive(false);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
         Respawn.SetActive(false);
     }
 
