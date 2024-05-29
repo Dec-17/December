@@ -48,6 +48,7 @@ public class TreeBoss : MonoBehaviour
     public float patternRunningTIme = 9f;
     public GameObject wall;
     public GameObject bossStart;
+    public GameObject playerOriginal;
 
     public CameraMovement cameraMovement;
     Collider bossColliders;
@@ -72,9 +73,17 @@ public class TreeBoss : MonoBehaviour
 
     void Update()
     {
-
+        if (!playerOriginal.activeSelf)
+        {
+            StartCoroutine(BossReset());
+        }
     }
 
+    IEnumerator BossReset()
+    {
+        yield return new WaitForSeconds(3f);
+        gameObject.SetActive(false);
+    }
 
     IEnumerator RandomPatternCaller() //*초마다 패턴을 랜덤으로 호출하는 코루틴
     {
@@ -255,7 +264,6 @@ public class TreeBoss : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine(BossDead());
                 bossStart.SetActive(false);
-                //wall.SetActive(false);
             }
         }
     }

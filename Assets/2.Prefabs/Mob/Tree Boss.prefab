@@ -163,11 +163,12 @@ MonoBehaviour:
   razerWarningPrefab: {fileID: 3495809145683717942, guid: 1bca5ff1715513940b8513c0f118bb55, type: 3}
   bossEffect: {fileID: 0}
   razerDuration: 3.5
-  spawnMonsterPrefab: {fileID: 2678358674015916457, guid: 57296b56bb389784696cde32a39a1ee8, type: 3}
+  spawnMonsterPrefab: {fileID: 25367163261840331, guid: 57296b56bb389784696cde32a39a1ee8, type: 3}
   minSpawnCount: 1
   maxSpawnCount: 3
   mobSpawnDuration: 20
   energyBombPrefab: {fileID: 0}
+  energyBombMiniPrefab: {fileID: 0}
   energyChargePrefab: {fileID: 0}
   energyBombSpeed: 20
   energyBombDuration: 4.5
@@ -175,6 +176,9 @@ MonoBehaviour:
   rockShotDuration: 10
   isPatternRunning: 0
   patternRunningTIme: 9
+  wall: {fileID: 0}
+  bossStart: {fileID: 0}
+  playerOriginal: {fileID: 0}
   cameraMovement: {fileID: 0}
 --- !u!1 &2794972540258983389
 GameObject:

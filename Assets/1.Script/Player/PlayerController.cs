@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D playerRigidbody;
+    public bool isDead = false;
 
 
     void Start()
@@ -105,7 +106,8 @@ public class PlayerController : MonoBehaviour
     {
         if (playerHP <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            gameObject.SetActive(false);
         }
     }
 
@@ -169,5 +171,10 @@ public class PlayerController : MonoBehaviour
         playerSP += 0.05f; //0.05씩 스태미너 회복
         playerSP = Mathf.Min(playerSP, maxPlayerSP); //최대 스테미너를 넘지 않도록 제한
         UpdatePlayerState(); //플레이어 상태 업데이트
+    }
+
+    public void playerColor()
+    {
+        spriteRenderer.color = playerOriginalColor;
     }
 }

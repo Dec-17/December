@@ -33,7 +33,6 @@ public class MapManager : MonoBehaviour
     public Vignette vignette;
     public Bloom bloom;
 
-
     private void Start()
     {
         volume.profile.TryGet(out vignette);
@@ -55,7 +54,7 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
     public void SetBloomTint(float r, float g, float b)
@@ -216,5 +215,14 @@ public class MapManager : MonoBehaviour
                 Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
             }
         }
+    }
+
+    public void respawnLight()
+    {
+        confiner.m_BoundingShape2D = col2d[0];
+        lightBug.SetActive(true);
+        vignette.rounded.value = false;
+        SetBloomTint(17.6f, 17.6f, 66.7f);
+        SetOrthographicSize(virtualCamera.m_Lens.OrthographicSize = 10f);
     }
 }

@@ -17,19 +17,29 @@ public class GameManager : MonoBehaviour
     [Header("에임포인트")]
     public GameObject aimPoint;
 
+    [Header("플레이어")]
+    public GameObject playerOriginal; //플레이어
+    public Vector3 respawnPosition; //플레이어 리스폰 위치
+    public GameObject youDied;
+    public GameObject Respawn;
+
     private bool isPaused = false; //게임이 일시정지 되었는지
     private bool isSettingPanelOpen = false; //설정 패널 활성화 여부
     private bool isInventoryPanelOpen = false; //인벤토리가 열려 있는지
+    PlayerController playerController;
+    MapManager mapManager;
 
     void Start()
     {
         Cursor.visible = false; //게임 시작 시 마우스를 숨김***
         UpdateAimPointPosition(); //aimPoint의 초기 위치 설정***
+        playerController = GetComponent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
+        mapManager = FindAnyObjectByType<MapManager>();
     }
 
     void Update()
     {
-
         UpdateGoldText(); //골드 소지량 업데이트
 
         if (Input.GetKeyDown(KeyCode.Escape)) //설정패널 또는 인벤토리 여닫기
@@ -62,7 +72,33 @@ public class GameManager : MonoBehaviour
 
         UpdateGoldText(); //골드 소지량 업데이트
 
-        UpdateAimPointPosition(); //마우스 위치에 따라 aimPoint 이동***
+        UpdateAimPointPosition(); //마우스 위치에 따라 aimPoint 이동***.
+
+        RespawnPlayer(); //플레이어 사망 시
+    }
+
+    void RespawnPlayer() //플레이어 리스폰
+    {
+        if (!playerOriginal.activeSelf)
+        {
+            StartCoroutine(RespawnCor());
+        }
+    }
+
+    IEnumerator RespawnCor()
+    {
+        youDied.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        Respawn.SetActive(true);
+        playerController.playerColor();
+        playerController.playerHP = playerController.maxPlayerHP;
+        playerController.playerSP = playerController.maxPlayerSP;
+        playerOriginal.transform.position = respawnPosition;
+        mapManager.respawnLight();
+        playerOriginal.SetActive(true);
+        youDied.SetActive(false);
+        yield return new WaitForSeconds(3.0f);
+        Respawn.SetActive(false);
     }
 
     public void OpenInventory() //인벤토리 열기
@@ -123,6 +159,7 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
     public void PauseGame() //게임 일시정지
     {
         isPaused = true;

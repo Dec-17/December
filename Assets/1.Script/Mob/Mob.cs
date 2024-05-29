@@ -23,18 +23,16 @@ public class Mob : MonoBehaviour
     public Color originalColor = new Color(1f, 1f, 1f); //몹의 기본 스프라이트 색상
 
     [Header("변수선언")]
-    PlayerController playerController;
     SpriteRenderer mobRenderer;
     public Rigidbody2D mobRigidbody;
-    public Animation mobAnimation;
+    public Animator mobAnimator;
 
 
     private void Awake()
     {
-        playerController = GetComponent<PlayerController>();
         mobRigidbody = GetComponent<Rigidbody2D>();
-        mobAnimation = GetComponent<Animation>();
         mobRenderer = GetComponent<SpriteRenderer>();
+        mobAnimator = GetComponent<Animator>();
     }
 
     void Start()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreeMonster : Mob
 {
+
     void Start()
     {
         mobHP = 5f;
@@ -19,5 +20,16 @@ public class TreeMonster : Mob
     {
         Testvirtual();
         FindPlayer();
+
+        GameObject targetObject = GameObject.Find("Tree Boss");
+
+        if (targetObject != null)
+        {
+            return;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
