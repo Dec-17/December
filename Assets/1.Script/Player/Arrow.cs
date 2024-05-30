@@ -26,6 +26,7 @@ public class Arrow : MonoBehaviour
         }
         else //그외의 오브젝트와 충돌 시 화살 파괴
         {
+            //화살 부딫히는 소리
             Destroy(gameObject);
         }
     }
