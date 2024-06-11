@@ -24,7 +24,9 @@
 사운드 https://daegwonkim.tistory.com/155
 오브젝트 뒤로 이동 시 투명도 https://www.youtube.com/watch?v=0HBHiJRb0zU
 이진공간분할법 https://sharp2studio.tistory.com/45
-
+다이얼로그 https://studybacksu.tistory.com/11
+		   https://wjs991.tistory.com/29
+		   https://make-my-jazz.tistory.com/27
 
 
 		[에셋스토어]
@@ -36,6 +38,81 @@
 
 
 
+--------------------------------------------------------------------------
+             public void DialogueStart() //대화 시작
+    {
+        ONOFF(true);
+
+        if (currentChapterIndex < chapters.Length)
+        {
+            Chapter chapter = chapters[currentChapterIndex];
+
+            if (currentDialogueIndex < chapter.dialogues.Length)
+            {
+                Dialogue dialogue = chapter.dialogues[currentDialogueIndex];
+
+                //Dialogue의 속성들을 변수에 할당
+                string characterNameText = dialogue.Name;
+                Sprite characterImgSprite = dialogue.Img;
+                string[] contextTexts = dialogue.contexts;
+                characterName.text = characterNameText;
+                characterImg.sprite = characterImgSprite;
+
+                //대사 출력
+                if (currentContextIndex < contextTexts.Length)
+                {
+                    context.text = contextTexts[currentContextIndex];
+                    currentContextIndex++;
+                }
+                else
+                {
+                    currentDialogueIndex++;
+                    currentContextIndex = 0;
+
+                    if (currentDialogueIndex < chapter.dialogues.Length)
+                    {
+                        DialogueStart(); //다음 대화로 넘어가서 다시 시작
+                    }
+                    else
+                    {
+                        // 다음 챕터로 넘어가기
+                        currentChapterIndex++;
+                        currentDialogueIndex = 0;
+                        currentContextIndex = 0;
+
+                        if (currentChapterIndex < chapters.Length)
+                        {
+                            DialogueStart(); // 다음 챕터로 넘어가서 다시 시작
+                        }
+                        else
+                        {
+                            ONOFF(false); // 모든 챕터가 끝나면 UI 비활성화
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // 다음 챕터로 넘어가기
+                currentChapterIndex++;
+                currentDialogueIndex = 0;
+                currentContextIndex = 0;
+
+                if (currentChapterIndex < chapters.Length)
+                {
+                    DialogueStart(); // 다음 챕터로 넘어가서 다시 시작
+                }
+                else
+                {
+                    ONOFF(false); // 모든 챕터가 끝나면 UI 비활성화
+                }
+            }
+        }
+        else
+        {
+            ONOFF(false); //모든 챕터가 끝나면 UI 비활성화
+        }
+    }
 --------------------------------------------------------------------------
 
 
