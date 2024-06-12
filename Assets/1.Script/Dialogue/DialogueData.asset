@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6227b1e055ba0b847b32b26fddebdb38, type: 3}
+  m_Name: DialogueData
+  m_EditorClassIdentifier: 
+  chapters:
+  - dialogues:
+    - Name: "\uC5D8\uB9AC\uB098"
+      Img: {fileID: 21300000, guid: eb93704d3b42be24e82c0ec7a7a96d3b, type: 3}
+      contexts:
+      - "\uC774 \uC232...\n\uB9C8\uB825\uC774 \uC810\uC810 \uAC15\uD574\uC9C0\uACE0
+        \uC788\uC5B4.."
+      - "\uADF8\uB4E4\uC774 \uB208\uC744 \uB728\uAE30 \uC804\uC5D0 \uBE68\uB9AC \uC6C0\uC9C1\uC774\uC790"
+  - dialogues:
+    - Name: "\uC5D8\uB9AC\uB098"
+      Img: {fileID: 21300000, guid: eb93704d3b42be24e82c0ec7a7a96d3b, type: 3}
+      contexts:
+      - "\uB3D9\uC0C1\uC5D0\uC11C \uC704\uD654\uAC10\uC774 \uB290\uAEF4\uC838"
+  - dialogues:
+    - Name: "\uC5D8\uB9AC\uB098"
+      Img: {fileID: 21300000, guid: eb93704d3b42be24e82c0ec7a7a96d3b, type: 3}
+      contexts:
+      - "\uB3D9\uC0C1\uC758 \uB208 \uC0C9\uC774 \uBAA8\uB450 \uB2E4\uB974\uB124"
+      - "\uBB34\uC5C7\uC744 \uC758\uBBF8 \uD558\uB294\uAC70\uC9C0?"
+  - dialogues:
+    - Name: "\uC5D8\uB9AC\uB098"
+      Img: {fileID: 21300000, guid: eb93704d3b42be24e82c0ec7a7a96d3b, type: 3}
+      contexts:
+      - "\uC785\uAD6C\uAC00 \uB9C9\uD600 \uC788\uC5B4"
+      - "\uD558\uC9C0\uB9CC \uC774 \uD654\uC0B4\uC774\uB77C\uBA74\n\uCDA9\uBD84\uD788
+        \uB6A4\uC744 \uC218 \uC788\uC744\uAC70 \uAC19\uC544"
+      - "\uD55C\uBC88 \uC2DC\uB3C4\uD574\uBCF4\uC790"

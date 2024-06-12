@@ -60,7 +60,22 @@ public class PlayerController : MonoBehaviour
         playerHP = maxPlayerHP;
         invincible = false;
         StartCoroutine(StaminaAutoHeal());
+        // 플레이어 애니메이션 다시 활성화
+        if (animator != null)
+        {
+            animator.enabled = true;
+        }
     }
+
+    private void OnDisable()
+    {
+        // 플레이어 애니메이션 중지
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+    }
+
     private void Update()
     {
         //플레이어 달리기
@@ -110,7 +125,7 @@ public class PlayerController : MonoBehaviour
         UpdatePlayerState(); //플레이어 상태 업데이트
         Dead(); //플레이어 사망
     }
-
+    
     void Dead() //플레이어 사망
     {
         if (playerHP <= 0)
