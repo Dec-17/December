@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public float ArrowSpeed = 15f; //화살이 날아가는 속도
+    public float ArrowSpeed = 20f; //화살이 날아가는 속도
 
     void Start()
     {

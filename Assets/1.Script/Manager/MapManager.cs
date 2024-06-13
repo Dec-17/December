@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 
 public class MapManager : MonoBehaviour
@@ -40,11 +41,17 @@ public class MapManager : MonoBehaviour
     CinemachineConfiner confiner;
 
     Dialog dialog;
+    PlayerController playerController;
+    PlayerController playerAnim;
+    Bow bow;
     
 
     private void Start()
     {
         dialog = FindObjectOfType<Dialog>();
+        playerController = FindObjectOfType<PlayerController>();
+        playerAnim = FindObjectOfType<PlayerController>();
+        bow = FindObjectOfType<Bow>();
 
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out bloom);
@@ -245,11 +252,14 @@ public class MapManager : MonoBehaviour
 
     IEnumerator WrongAnser()
     {
-        //던전에서 쫒겨나는 애니메이션이나 이팩트 추가
+       playerController.animator.SetBool("PlayerQuiz", true);
+        playerController.isDialogue = true; // *****플레이어 컨트롤러 관련*****
+        bow.isDialogue = true; // *****플레이어 컨트롤러 관련*****
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         dialog.SetChapterNum(4);
         dialog.DialogueStart(); //대화 시작
+        playerController.animator.SetBool("PlayerQuiz", false);
     }
 
     private void SwitchToBackgroundMusic()
