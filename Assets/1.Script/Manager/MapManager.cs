@@ -39,8 +39,13 @@ public class MapManager : MonoBehaviour
     public Collider2D[] col2d;
     CinemachineConfiner confiner;
 
+    Dialog dialog;
+    
+
     private void Start()
     {
+        dialog = FindObjectOfType<Dialog>();
+
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out bloom);
 
@@ -160,7 +165,7 @@ public class MapManager : MonoBehaviour
                 Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
             }
         }
-        else if (other.gameObject.name == "QuizMap01")
+        else if (other.gameObject.name == "QuizMap01") //퀴즈 실패
         {
             Vector3 newPosition = new Vector3(quiaMap05.position.x, quiaMap05.position.y - 1.6f, quiaMap05.position.z);
             transform.position = newPosition;
@@ -171,6 +176,8 @@ public class MapManager : MonoBehaviour
 
                 vignette.rounded.value = false;
                 SetBloomTint(17.6f, 17.6f, 66.7f);
+
+                StartCoroutine(WrongAnser());
             }
             else
             {
@@ -188,6 +195,8 @@ public class MapManager : MonoBehaviour
 
                 vignette.rounded.value = false;
                 SetBloomTint(17.6f, 17.6f, 66.7f);
+
+                StartCoroutine(WrongAnser());
             }
             else
             {
@@ -205,6 +214,8 @@ public class MapManager : MonoBehaviour
 
                 vignette.rounded.value = false;
                 SetBloomTint(17.6f, 17.6f, 66.7f);
+
+                StartCoroutine(WrongAnser());
             }
             else
             {
@@ -222,12 +233,23 @@ public class MapManager : MonoBehaviour
 
                 vignette.rounded.value = false;
                 SetBloomTint(17.6f, 17.6f, 66.7f);
+
+                StartCoroutine(WrongAnser());
             }
             else
             {
                 Debug.LogWarning("col2d 배열에 충분한 요소가 없습니다.");
             }
         }
+    }
+
+    IEnumerator WrongAnser()
+    {
+        //던전에서 쫒겨나는 애니메이션이나 이팩트 추가
+
+        yield return new WaitForSeconds(0.6f);
+        dialog.SetChapterNum(4);
+        dialog.DialogueStart(); //대화 시작
     }
 
     private void SwitchToBackgroundMusic()

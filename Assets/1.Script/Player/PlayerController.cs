@@ -39,11 +39,12 @@ public class PlayerController : MonoBehaviour
     public float moveHorizontal;
     public float moveVertical;
 
-    Animator animator;
+    public Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D playerRigidbody;
     public bool isDead = false;
 
+    public bool isDialogue = false; //대화중 여부
 
     void Start()
     {
@@ -60,24 +61,18 @@ public class PlayerController : MonoBehaviour
         playerHP = maxPlayerHP;
         invincible = false;
         StartCoroutine(StaminaAutoHeal());
-        // 플레이어 애니메이션 다시 활성화
-        if (animator != null)
-        {
-            animator.enabled = true;
-        }
-    }
-
-    private void OnDisable()
-    {
-        // 플레이어 애니메이션 중지
-        if (animator != null)
-        {
-            animator.enabled = false;
-        }
     }
 
     private void Update()
     {
+        if (isDialogue)
+        {
+            moveVertical = 0f;
+            moveHorizontal = 0f;
+            playerSpeed = 5f;
+            return;
+        }
+      
         //플레이어 달리기
         if (isAttack == false && Input.GetKeyDown(KeyCode.LeftShift)) //공격중이 아니고 쉬프트를 누르고 있다면
         {
@@ -85,7 +80,7 @@ public class PlayerController : MonoBehaviour
             playerSpeed = playerRunSpeed; //플레이어 속도를 RunSpeed로 변경
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) || isAttack == true) //공격을 시작했거나 쉬프트 입력을 취소했다면
+        if (Input.GetKeyUp(KeyCode.LeftShift) || isAttack == true || isDialogue) //쉬프트 입력취소 or 공격 시 or 대화 시작 시
         {
             Debug.Log("달리기 종료");
             playerSpeed = 5f; //플레이어 속도를 초기화
@@ -110,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDialogue) return;
         //플레이어 이동 값
         moveHorizontal = Input.GetAxis("Horizontal");
 

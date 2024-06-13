@@ -29,6 +29,8 @@ public class Bow : MonoBehaviour
 
     public bool isAttack = false; //플레이어가 공격중인지 확인하는 변수
 
+    public bool isDialogue = false; // 대화중 여부
+
     void Start()
     {
         bowAnimator = BowObj.GetComponent<Animator>();
@@ -112,11 +114,11 @@ public class Bow : MonoBehaviour
             IsPlayerUp = false;
         }
 
-            if (Input.GetMouseButton(0)) //화살 발사
+        if (Input.GetMouseButton(0)) //화살 발사
         {
             if (playerController.playerSP > 0) //playerSP가 0보다 클 때만 화살 발사
             {
-                if (!bowVisible)
+                if (!bowVisible & !isDialogue)
                 {
                     isAttack = true; //공격 상태로 변경
 
@@ -145,7 +147,7 @@ public class Bow : MonoBehaviour
             CancelInvoke(nameof(CreateArrow)); //화살 생성 간격 함수 호출 중지
         }
 
-        if(isAttack == false & playerController.playerSP < playerController.maxPlayerSP) //공격중이 아니며 플레이어의 스테미너가 최대치보다 낮으면
+        if (isAttack == false & playerController.playerSP < playerController.maxPlayerSP) //공격중이 아니며 플레이어의 스테미너가 최대치보다 낮으면
         {
             StartCoroutine(playerController.StaminaAutoHeal()); //플레이어 스테미너 자동 회복 메서드 실행
         }

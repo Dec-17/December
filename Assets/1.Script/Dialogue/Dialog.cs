@@ -29,16 +29,19 @@ public class Dialog : MonoBehaviour
     [SerializeField] private int currentChapterNum; // 지정된 챕터 번호 변수
 
     PlayerController playerController; // 플레이어 컨트롤러 참조 변수*****플레이어 컨트롤러 관련*****
+    Bow bow; // *****플레이어 컨트롤러 관련*****
 
     private void Awake()
     {
         dialogueState = new DialogueState(); // 대화 상태 초기화
+
         playerController = FindObjectOfType<PlayerController>(); // 플레이어 컨트롤러 참조*****플레이어 컨트롤러 관련*****
+        bow = FindObjectOfType<Bow>(); // *****플레이어 컨트롤러 관련*****
     }
 
     private void Update() // 업데이트
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
             if (isDialogueActive)
             {
@@ -73,7 +76,10 @@ public class Dialog : MonoBehaviour
         isDialogueActive = true; // 대화 활성화
         ONOFF(true); // 대화 UI 활성화
         DisplayNextDialogue(); // 첫 번째 대화 표시
-        playerController.enabled = false; // 플레이어 컨트롤러 비활성화*****플레이어 컨트롤러 관련*****
+
+        playerController.isDialogue = true; // *****플레이어 컨트롤러 관련*****
+        bow.isDialogue = true; // *****플레이어 컨트롤러 관련*****
+
     }
 
     private void DisplayNextDialogue()
@@ -133,7 +139,9 @@ public class Dialog : MonoBehaviour
         dialogueState.currentDialogueIndex = 0; // 변수 초기화
         dialogueState.currentContextIndex = 0; // 변수 초기화
         isDialogueActive = false; // 대화 비활성화
-        playerController.enabled = true; // 플레이어 컨트롤러 다시 활성화*****플레이어 컨트롤러 관련*****
+
+        playerController.isDialogue = false; // *****플레이어 컨트롤러 관련*****
+        bow.isDialogue = false; // *****플레이어 컨트롤러 관련*****
     }
 
     private IEnumerator TypeText(string textToType) // 타이핑 모션 실행

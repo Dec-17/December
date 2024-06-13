@@ -39,3 +39,9 @@ MonoBehaviour:
       - "\uD558\uC9C0\uB9CC \uC774 \uD654\uC0B4\uC774\uB77C\uBA74\n\uCDA9\uBD84\uD788
         \uB6A4\uC744 \uC218 \uC788\uC744\uAC70 \uAC19\uC544"
       - "\uD55C\uBC88 \uC2DC\uB3C4\uD574\uBCF4\uC790"
+  - dialogues:
+    - Name: "\uC5D8\uB9AC\uB098"
+      Img: {fileID: 21300000, guid: eb93704d3b42be24e82c0ec7a7a96d3b, type: 3}
+      contexts:
+      - "\uC774 \uAE38\uC774 \uC544\uB2CC \uBAA8\uC591\uC774\uC57C"
+      - "\uB2E4\uC2DC \uD55C\uBC88 \uC2DC\uB3C4 \uD574\uBCF4\uC790"

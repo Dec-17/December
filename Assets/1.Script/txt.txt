@@ -34,8 +34,10 @@
 스토어 https://unityassetcollection.com/
 스토어 https://itch.io/
 
-dialog.SetChapterNum(2);
-        dialog.DialogueStart();
+
+던전 퀴즈 실패 시
+다이얼로그 띄우기
+플레이어 돌아가는? 이팩트 추가
 
 
 
