@@ -4,7 +4,6 @@
 
 
 저장 해야하는 거
-저장은 너 하고싶을떄 언제든 돼
 
 캐릭터 위치
 인벤토리
@@ -50,10 +49,21 @@ HP
 오버라이드 https://luv-n-interest.tistory.com/791
 사운드 https://daegwonkim.tistory.com/155
 오브젝트 뒤로 이동 시 투명도 https://www.youtube.com/watch?v=0HBHiJRb0zU
+타일맵 다루는법 https://www.youtube.com/watch?v=ATOcrB28_dc
 이진공간분할법 https://sharp2studio.tistory.com/45
 다이얼로그 https://studybacksu.tistory.com/11
 		   https://wjs991.tistory.com/29
 		   https://make-my-jazz.tistory.com/27
+맵자동생성 https://thekr.tistory.com/entry/mapmaking
+
+참고할게임 https://www.youtube.com/watch?v=2IMPIGy-3l4
+           https://blog.naver.com/kitpage/221544587522
+           https://www.gametrics.com/news/News01_View.aspx?seqid=43566
+           숲속의 작은 마녀
+           https://m.post.naver.com/viewer/postView.nhn?volumeNo=12500115&memberNo=40601392
+           https://www.youtube.com/watch?v=v3g_6nrs4bg
+           https://www.youtube.com/watch?v=2JCG4fCmeHk
+           https://www.youtube.com/watch?v=hELU5HbYb-8
 
 
 		[에셋스토어]
@@ -61,6 +71,11 @@ HP
 스토어 https://unityassetcollection.com/
 스토어 https://itch.io/
 
+캐릭터 https://pixivan.itch.io/sole-female-cape-character-pack
+맵 https://pixivan.itch.io/top-down-forest-tileset
+   https://pixivan.itch.io/simple-forest-tileset
+npc https://pixivan.itch.io/traders-top-down-npc
+몬스터 https://pixivan.itch.io/top-down-enemy-pack-1
 
 던전 퀴즈 실패 시
 다이얼로그 띄우기
